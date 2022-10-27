@@ -9,9 +9,23 @@
       content="upgrade-insecure-requests"
     /> -->
 
+    <!-- DARK MOD DALAM SYSTEM -->
+    <script>
+      // On page load or when changing themes, best to add inline in `head` to avoid FOUC
+      if (
+        localStorage.theme === "dark" ||
+        (!("theme" in localStorage) &&
+          window.matchMedia("(prefers-color-scheme: dark)").matches)
+      ) {
+        document.documentElement.classList.add("dark");
+      } else {
+        document.documentElement.classList.remove("dark");
+      }
+    </script>
+
     <title>Personal Portfolio</title>
     <!-- LINK TAILWINDCSS -->
-    <link href="../dist/output.css" rel="stylesheet" />
+    <link href="../dist/final.css" rel="stylesheet" />
     <!-- MY CSS -->
     <link rel="stylesheet" href="./css/style.css" />
     <!-- FONT GOOGLE -->
@@ -27,21 +41,19 @@
   <body class="dark:bg-black dark:text-white">
     <!-- 1. HEADER START  -->
     <header
-      class="absolute top-0 left-0 right-0 mb-36 flex h-12 w-full items-center bg-red-200 py-7 shadow-lg dark:bg-black dark:text-white md:h-14 lg:h-16"
+      class="absolute top-0 left-0 right-0 mb-36 flex h-12 w-full items-center bg-red-200 py-7 shadow-lg dark:bg-dark md:h-14 lg:h-16"
     >
       <div class="container mx-auto">
         <div class="relative flex items-center justify-between">
           <div
-            class="px-4 text-2xl font-extrabold text-primary dark:bg-black dark:text-white md:text-2xl lg:text-3xl"
+            class="px-4 text-2xl font-extrabold text-primary dark:text-white md:text-2xl lg:text-3xl"
           >
-            <a href="#">ISHAKAN</a>
+            <a href="#">ISHAKAN.</a>
           </div>
           <div class="flex items-center justify-center">
             <button
-              type="submit"
               id="humberger"
-              name="humberger"
-              class="absolute right-4 block lg:hidden"
+              class="absolute right-4 block rounded-md p-[4px] lg:hidden"
             >
               <span class="humberger_line origin-top-left"></span>
               <span class="humberger_line"></span>
@@ -50,6 +62,7 @@
 
             <!-- Navbar -->
             <nav
+              id="nav_menu"
               class="absolute top-full right-4 z-50 hidden w-full rounded-md bg-red-200 shadow-lg lg:static lg:block lg:w-full lg:bg-transparent lg:shadow-none"
             >
               <ul class="block lg:flex">
@@ -106,7 +119,7 @@
     <!-- 2. HEADER END -->
 
     <!-- 3. HOME START SECTION  -->
-    <section id="home" class="pt-[63px] dark:bg-black dark:text-white lg:pt-24">
+    <section id="home" class="pt-[63px] dark:bg-black dark:text-white lg:pt-20">
       <div
         class="container mx-auto rounded-xl bg-red-200 pt-5 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200"
       >
@@ -191,9 +204,9 @@
             <p
               class="max-w-xl text-base font-thin text-secondary dark:bg-black dark:text-white"
             >
-              My name is Ishak comes from a simple family and I like to learn
-              about coding it's very fun for me, keep learning, keep spirit and
-              keep growing💪
+              Hi, everyone! I would like to introduce myself! My full name is
+              Ishaq angah. I live in Ogan Komering ilir ~ Indonesia. Nice to
+              meet you all. Thank you and nice to meet you all 😀!
             </p>
           </div>
           <!-- section 2 -->
@@ -510,7 +523,7 @@
               <img
                 src="./img/1.jpg"
                 alt="1"
-                class="h-full w-full animate-pulse object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
@@ -528,7 +541,7 @@
               <img
                 src="./img/3.jpg"
                 alt="1"
-                class="h-full w-full animate-pulse object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
@@ -537,7 +550,7 @@
               <img
                 src="./img/4.jpg"
                 alt="1"
-                class="h-full w-full animate-pulse object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div

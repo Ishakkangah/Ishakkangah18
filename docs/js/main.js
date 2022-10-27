@@ -32,18 +32,10 @@ typing();
 
 // 2. START ANIMATION NAVBAR
 const humberger = document.getElementById("humberger");
-const nav = document.querySelector("nav");
+const nav = document.getElementById("nav_menu");
 humberger.addEventListener("click", function () {
-  humberger.classList.toggle("humberger_active");
   nav.classList.toggle("hidden");
-});
-
-// HILANGKAN HUMBERGER MENU JIKA DI KLICK DIMANAPUN
-window.addEventListener("click", function (e) {
-  if (e.target != nav && e.target != humberger) {
-    humberger.classList.remove("humberger_active");
-    nav.classList.add("hidden");
-  }
+  humberger.classList.toggle("humberger_active");
 });
 
 // 2. END ANIMATION NAVBAR
@@ -187,10 +179,12 @@ btnMode.forEach((mode) => {
       html.classList.add("dark");
       mode.classList.add("hidden");
       siang.classList.remove("hidden");
+      localStorage.theme = "dark";
     } else {
       html.classList.remove("dark");
       mode.classList.add("hidden");
       malam.classList.remove("hidden");
+      localStorage.theme = "light";
     }
   });
 });
