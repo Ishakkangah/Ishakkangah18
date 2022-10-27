@@ -25,7 +25,7 @@
 
     <title>Personal Portfolio</title>
     <!-- LINK TAILWINDCSS -->
-    <link href="../dist/final.css" rel="stylesheet" />
+    <link href="../dist/output.css" rel="stylesheet" />
     <!-- MY CSS -->
     <link rel="stylesheet" href="./css/style.css" />
     <!-- FONT GOOGLE -->
@@ -41,12 +41,12 @@
   <body class="dark:bg-black dark:text-white">
     <!-- 1. HEADER START  -->
     <header
-      class="absolute top-0 left-0 right-0 mb-36 flex h-12 w-full items-center bg-red-200 py-7 shadow-lg dark:bg-dark md:h-14 lg:h-16"
+      class="absolute top-0 left-0 right-0 mb-36 flex h-12 w-full items-center bg-red-200 py-7 shadow-lg dark:bg-black md:h-14 lg:h-16"
     >
       <div class="container mx-auto">
         <div class="relative flex items-center justify-between">
           <div
-            class="px-4 text-2xl font-extrabold text-primary dark:text-white md:text-2xl lg:text-3xl"
+            class="px-4 text-2xl font-extrabold text-primary md:text-2xl lg:text-3xl"
           >
             <a href="#">ISHAKAN.</a>
           </div>
@@ -63,7 +63,7 @@
             <!-- Navbar -->
             <nav
               id="nav_menu"
-              class="absolute top-full right-4 z-50 hidden w-full rounded-md bg-red-200 shadow-lg lg:static lg:block lg:w-full lg:bg-transparent lg:shadow-none"
+              class="absolute top-full right-4 z-50 hidden w-full rounded-md bg-red-200 shadow-lg dark:bg-black lg:static lg:block lg:w-full lg:bg-transparent lg:shadow-none"
             >
               <ul class="block lg:flex">
                 <li class="mx-8 py-4">
@@ -126,13 +126,7 @@
         <div
           class="flex flex-wrap sm:flex-nowrap md:flex-row-reverse md:flex-nowrap"
         >
-          <!-- section-1 -->
           <div class="w-full self-center px-4">
-            <!-- <h1
-              class="text-primary font-semibold text-lg md:font-bold md:text-xl lg:font-bold lg:text-2xl"
-            >
-              Hallo everyone 😀,
-            </h1> -->
             <span
               class="mt-[2px] block text-xl font-bold text-dark dark:bg-black dark:text-white md:mt-[3px] md:text-2xl lg:text-3xl"
             >
@@ -157,7 +151,6 @@
               Hire me
             </a>
           </div>
-          <!-- section 2 -->
           <div
             class="relative flex w-full justify-center self-center overflow-hidden px-4 md:col-start-1"
           >
@@ -189,7 +182,6 @@
         class="container mx-auto rounded-xl bg-red-200 py-3 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200"
       >
         <div class="flex flex-wrap gap-10 px-4 md:flex-nowrap md:gap-2">
-          <!-- section 1 -->
           <div class="w-full">
             <h2
               class="mb-3 text-lg font-bold uppercase text-primary lg:text-2xl"
@@ -209,7 +201,6 @@
               meet you all. Thank you and nice to meet you all 😀!
             </p>
           </div>
-          <!-- section 2 -->
           <div class="w-full">
             <h3
               class="mb-2 max-w-xl text-lg font-semibold text-dark dark:bg-black dark:text-white md:mb-3 md:mt-[42px] lg:mb-[20px] lg:text-xl"
@@ -349,11 +340,7 @@
         class="container mx-auto rounded-xl bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
         <div class="mb-10 text-center text-lg font-bold lg:mb-20">
-          <h2
-            class="mb-1 uppercase text-primary dark:bg-black dark:text-white lg:text-2xl"
-          >
-            Galerry
-          </h2>
+          <h2 class="mb-1 uppercase text-primary lg:text-2xl">Galerry</h2>
           <h3
             class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
           >
@@ -381,7 +368,6 @@
               &rArr;
             </button>
           </div>
-          <!-- data slider -->
           <div data-slider>
             <div
               class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
@@ -514,7 +500,6 @@
               &rArr;
             </button>
           </div>
-          <!-- data slider -->
           <div data-slider>
             <div
               class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
@@ -797,15 +782,13 @@
     </section>
     <!-- CLIENTS SECTION END -->
 
-    <!--  BLOG SECTION START -->
+    <!-- BLOG SECTION START -->
     <section id="article" class="mt-6 dark:bg-black dark:text-white">
       <div
         class="container mx-auto rounded-tl-lg rounded-tr-lg bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
         <div class="mb-10 text-center text-lg font-bold lg:mb-20">
-          <h2
-            class="mb-1 uppercase text-primary dark:bg-black dark:text-white lg:text-2xl"
-          >
+          <h2 class="mb-1 uppercase text-primary dark:bg-black lg:text-2xl">
             Articles
           </h2>
           <h3
@@ -814,10 +797,11 @@
             POPULAR NEWS
           </h3>
         </div>
-        <!-- search -->
         <label class="relative mb-5 block lg:w-1/2">
           <span class="sr-only">Search</span>
-          <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+          <span
+            class="absolute inset-y-0 left-0 flex items-center pl-2 dark:text-dark"
+          >
             <i class="fa fa-search" aria-hidden="true"></i>
           </span>
           <input
@@ -969,20 +953,118 @@
         </div>
 
         <div
-          class="mb-3 flex items-center justify-center overflow-hidden rounded-lg"
+          class="grid h-full w-full grid-cols-1 gap-2 rounded-md md:grid-cols-2"
         >
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d322.8184850512167!2d104.83078993413103!3d-3.390868124137917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e3bee0edc84d3a7%3A0x80cc8fc4f782fe58!2sJl.%20Merdeka%2C%20Kec.%20Kayu%20Agung%2C%20Kabupaten%20Ogan%20Komering%20Ilir%2C%20Sumatera%20Selatan!5e0!3m2!1sid!2sid!4v1666795064342!5m2!1sid!2sid"
-            style="border: 0"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            class="h-full w-full sm:h-[500px] sm:w-[70%]"
-          ></iframe>
+          <!-- Location -->
+          <div
+            class="aspect-square w-full overflow-hidden rounded-md bg-sky-500 md:h-[450px]"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d322.8184850512167!2d104.83078993413103!3d-3.390868124137917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e3bee0edc84d3a7%3A0x80cc8fc4f782fe58!2sJl.%20Merdeka%2C%20Kec.%20Kayu%20Agung%2C%20Kabupaten%20Ogan%20Komering%20Ilir%2C%20Sumatera%20Selatan!5e0!3m2!1sid!2sid!4v1666795064342!5m2!1sid!2sid"
+              style="border: 0"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              class="h-full w-full"
+            ></iframe>
+          </div>
+          <!-- Weather App -->
+          <div class="w-fulL h-full rounded-md">
+            <div class="container mx-auto rounded-xl md:w-1/2 md:py-0">
+              <div
+                class="mt-20 mb-20 text-center text-lg font-bold md:mt-0 lg:mb-16"
+              >
+                <h2 class="mb-1 uppercase text-primary lg:text-2xl">
+                  Wheather APP
+                </h2>
+                <h3
+                  class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
+                >
+                  Ogan Komering Ilir - Indonesia
+                </h3>
+              </div>
+
+              <!-- Info -->
+              <div class="flex justify-end">
+                <button
+                  class="mb-2 flex w-1/2 cursor-pointer items-center justify-center gap-1 rounded-sm bg-sky-500 py-0 text-[14px] font-medium shadow-sm duration-200 hover:animate-pulse hover:bg-opacity-50 active:scale-110 md:w-1/2 md:py-1"
+                  id="location"
+                >
+                  <span
+                    class="mr-1 text-lg font-bold text-primary hover:text-slate-200"
+                    ><i class="fa fa-map-marker" aria-hidden="true"></i
+                  ></span>
+                  <span>My Location</span>
+                </button>
+              </div>
+              <div class="my-2 w-full">
+                <span
+                  class="mb-2 block rounded-sm bg-red-500 px-4 py-1 text-center"
+                  >City not found</span
+                >
+                <label for="location" class="relative mb-2 flex items-center">
+                  <div
+                    class="absolute left-1 my-auto flex h-full items-center pr-1 text-dark"
+                  >
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </div>
+                  <input
+                    type="text"
+                    id="location"
+                    class="w-full rounded-sm border-none py-[4px] pl-[26px] text-sm font-thin text-dark outline-none ring-0 placeholder:text-[12px] focus:border-sky-500 focus:ring-2 focus:ring-sky-500 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
+                    placeholder="Please get your city"
+                  />
+                </label>
+                <table
+                  class="w-full table-auto border-collapse border border-slate-400 font-thin"
+                >
+                  <tbody>
+                    <tr>
+                      <td class="border border-slate-300 font-bold">State</td>
+                      <td class="border border-slate-300">Amerika Serikat</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-slate-300 font-bold">City</td>
+                      <td class="border border-slate-300">Washington DC</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-slate-300 font-bold">
+                        Description
+                      </td>
+                      <td class="border border-slate-300">Cload</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-slate-300 font-bold">
+                        Temperatur
+                      </td>
+                      <td class="border border-slate-300">13 &#176; C</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-slate-300 font-bold">
+                        Humadity
+                      </td>
+                      <td class="border border-slate-300">22 Deg</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-slate-300 font-bold">
+                        Feels Like
+                      </td>
+                      <td class="border border-slate-300">17 &#176; C</td>
+                    </tr>
+                    <tr>
+                      <td class="border border-slate-300 font-bold">Main</td>
+                      <td class="border border-slate-300">-</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
     <!-- CLIENTS SECTION END -->
+
     <!-- FOOTER SECTION START -->
     <section id="footer" class="pt-6 dark:bg-black dark:text-white">
       <div

@@ -394,4 +394,4 @@ function UINewsSingapore(results) {
 </div>    `;
 }
 
-// GET API ARTICLE
+// VISITOR
