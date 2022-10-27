@@ -1,18 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html {
+  scroll-behavior: smooth;
+}
 body {
   font-family: "Roboto", font-serif;
   @apply bg-red-100;
 }
 
 .humberger_line {
-  @apply w-[19px] h-[2px] bg-primary block my-1 transition-all duration-300;
+  @apply my-1 block h-[2px] w-[19px] bg-primary transition-all duration-300;
 }
 
 .humberger_active > span:nth-child(1) {
-  @apply bg-primary rotate-45;
+  @apply rotate-45 bg-primary;
 }
 
 .humberger_active > span:nth-child(2) {
@@ -20,27 +22,27 @@ body {
 }
 
 .humberger_active > span:nth-child(3) {
-  @apply bg-primary  -rotate-45;
+  @apply -rotate-45  bg-primary;
 }
 
 .display_baru_header {
-  @apply fixed bg-red-300 bg-opacity-90 shadow-lg z-[9998] duration-300 transition-all;
+  @apply fixed z-[9998] bg-red-300 bg-opacity-90 shadow-lg transition-all duration-300;
   backdrop-filter: blur(5px);
 }
 
 .active {
-  @apply text-dark font-extrabold;
+  @apply font-extrabold text-dark;
 }
 
 [data-active] {
-  @apply opacity-100 z-20;
+  @apply z-20 opacity-100;
   transition-delay: 0;
 }
 
 .alertSuccess {
-  @apply text-slate-200 block bg-green-500 rounded-md shadow-sm text-center py-[4px] md:py-[5px] max-w-2xl mx-auto;
+  @apply mx-auto block max-w-2xl rounded-md bg-green-500 py-[4px] text-center text-slate-200 shadow-sm md:py-[5px];
 }
 
 .alertEroor {
-  @apply text-slate-200 block bg-red-500 rounded-md shadow-sm text-center max-w-2xl mx-auto py-[4px] md:py-[5px];
+  @apply mx-auto block max-w-2xl rounded-md bg-red-500 py-[4px] text-center text-slate-200 shadow-sm md:py-[5px];
 }

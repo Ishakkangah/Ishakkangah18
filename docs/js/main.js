@@ -37,6 +37,15 @@ humberger.addEventListener("click", function () {
   humberger.classList.toggle("humberger_active");
   nav.classList.toggle("hidden");
 });
+
+// HILANGKAN HUMBERGER MENU JIKA DI KLICK DIMANAPUN
+window.addEventListener("click", function (e) {
+  if (e.target != nav && e.target != humberger) {
+    humberger.classList.remove("humberger_active");
+    nav.classList.add("hidden");
+  }
+});
+
 // 2. END ANIMATION NAVBAR
 
 // 3. START NAVBAR SCROLL DOWN
@@ -45,15 +54,19 @@ const header = document.querySelector("header");
 
 // ketika window di scroll down maka hapus display absolut ganti dengan display fixed
 window.onscroll = function () {
+  const btnToTop = document.getElementById("to_top");
   if (document.documentElement.scrollTop > 20) {
+    btnToTop.classList.remove("hidden");
+    btnToTop.classList.add("flex");
     header.classList.remove("absolute");
     header.classList.add("display_baru_header");
   } else {
     header.classList.add("absolute");
     header.classList.remove("display_baru_header");
+    btnToTop.classList.remove("flex");
+    btnToTop.classList.add("hidden");
   }
 };
-// kemudian tambahkan warna merah bg-200
 // 3. END NAVBAR SCROLL DOWN
 
 // 4. START NAV COLORS CLICK
@@ -94,19 +107,19 @@ function setCarousel(btn) {
 // 5.COUROSEL END
 
 // 6. SCROOL TO TOP
-const to_top = document.querySelector("#to_top");
-to_top.addEventListener("click", function () {
-  smoothscroll();
-});
+// const to_top = document.querySelector("#to_top");
+// to_top.addEventListener("click", function () {
+//   smoothscroll();
+// });
 
-function smoothscroll() {
-  var currentScroll =
-    document.documentElement.scrollTop || document.body.scrollTop;
-  if (currentScroll > 0) {
-    window.requestAnimationFrame(smoothscroll);
-    window.scrollTo(0, currentScroll - currentScroll / 20);
-  }
-}
+// function smoothscroll() {
+//   var currentScroll =
+//     document.documentElement.scrollTop || document.body.scrollTop;
+//   if (currentScroll > 0) {
+//     window.requestAnimationFrame(smoothscroll);
+//     window.scrollTo(0, currentScroll - currentScroll / 20);
+//   }
+// }
 // 6. SCROOL TO TOP
 
 // 7. SEND MESSSAGE START
@@ -193,17 +206,18 @@ let api, values, dataNewsPopular, allDataBlogs;
   fetchData();
 })();
 
+// 3cbf72d3597cf2b6772b2c51137c3892
 // FETCH DATA API
 function fetchData() {
   Promise.all([
     fetch(
-      `https://newsapi.org/v2/everything?q=apple&from=2022-10-24&to=2022-10-24&sortBy=popularity&apiKey=baaca9b7278b43b89e07b1bfea6ad85b`
+      `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=id`
     ),
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=baaca9b7278b43b89e07b1bfea6ad85b`
+      `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=us`
     ),
     fetch(
-      `https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=baaca9b7278b43b89e07b1bfea6ad85b`
+      `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=sg`
     ),
   ])
     .then((responses) => {
@@ -218,92 +232,74 @@ function fetchData() {
       getDataBlogs(data);
     });
 }
-let x = 1;
-data_selengkapnya.addEventListener("click", function () {
-  console.log("x", x);
-  x += 1;
-  if (x > 3) return (x = 0);
-  getDataBlogs(allDataBlogs);
-});
 
 function getDataBlogs(data) {
-  const [popular, topHeadLine, topNews] = data;
-  const dataPopuler = Array.from(popular.articles);
-  const dataTopHeadLine = Array.from(topHeadLine.articles);
-  const dataTopNews = Array.from(topNews.articles);
-  setDataPopuler(dataPopuler);
-  setTopHeadLine(dataTopHeadLine);
-  setTopNews(dataTopNews);
+  const [newsUSA, newsIndonesia, newsSingapore] = data;
+  const nUSA = newsUSA;
+  const nIndonesia = newsIndonesia;
+  const nSingapore = newsSingapore;
+  // const dataTopNews = Array.from(topNews.articles);
+  setNewsUSA(nUSA);
+  setNewsIndonesia(nIndonesia);
+  setNewsSingapore(nSingapore);
 }
 
-// Set data populer
-function setDataPopuler(data) {
-  if (x == 1) {
-    window.location.href = "#blogs";
-    dataNewsPopular = data.slice(0, 8);
-    data_selengkapnya.innerHTML = `<div class="flex flex-col dark:bg-primary dark:text-white">
-                                        <span class="text-sm font-base md:text-xl">NEXT</span>
-                                        <i class="fa fa-arrow-down" aria-hidden="true"></i>
-                                      </div>`;
-  } else if (x == 2) {
-    dataNewsPopular = data.slice(8, 16);
-  } else if (x == 3) {
-    window.location.href = "#blogs";
-    dataNewsPopular = data;
-    data_selengkapnya.innerHTML = ` <div class="flex flex-col">
-                                      <span class="text-sm font-base">PREVIOUS</span>
-                                       <i class="fa fa-arrow-up" aria-hidden="true"></i
-                                    </div>`;
-  }
-
-  let UpdateUINewsPopular = "";
-  dataNewsPopular.forEach((data) => {
-    const decription = data.description.substring(0, 100);
+// Set USA / AMERIKA SERIKAT News
+function setNewsUSA(data) {
+  let UpdateUINewsUSA = "";
+  dataNews = data.data.slice(0, 16);
+  dataNews.forEach((data) => {
+    const description = data.description.substring(0, 100);
     const results = {
-      name: data.source.name,
       author: data.author,
       title: data.title,
-      description: decription,
-      thumbnail: data.urlToImage,
+      description: description,
       url: data.url,
-      published: data.publishedAt,
+      source: data.source,
+      thumbnail: data.image,
+      category: data.category,
+      published: data.published_at,
     };
-    UpdateUINewsPopular += UIPopular(results);
+    UpdateUINewsUSA += UIPopular(results);
   });
-  document.querySelector(".blogs").innerHTML = UpdateUINewsPopular;
+  document.querySelector(".blogs").innerHTML = UpdateUINewsUSA;
 }
 
-// Set data topHeadLine
-function setTopHeadLine(dataTopHeadLine) {
-  let updateUITopHeadline = "";
-  dataTopHeadLine.slice(0, 5).forEach((data) => {
-    const decription = data.description.substring(0, 100);
+// Set Indonesia News
+function setNewsIndonesia(data) {
+  let updateUINewsIndonesia = "";
+  dataNews = data.data;
+  dataNews.slice(0, 6).forEach((data) => {
     const results = {
-      name: data.source.name,
+      author: data.author,
       title: data.title,
-      description: decription,
-      thumbnail: data.urlToImage,
+      description: data.description.substring(0, 100),
       url: data.url,
+      source: data.source,
+      thumbnail: data.image,
+      category: data.category,
+      published: data.published_at,
     };
-    updateUITopHeadline += UITopHeadLine(results);
+    updateUINewsIndonesia += UINewsIndonesia(results);
   });
-  document.getElementById("topHeadLine").innerHTML = updateUITopHeadline;
+  document.getElementById("topHeadLine").innerHTML = updateUINewsIndonesia;
 }
 
 // Set data topNews
-function setTopNews(dataTopNews) {
-  let updateUITopNews = "";
-  dataTopNews.slice(0, 9).forEach((data) => {
-    const decription = data.description.substring(0, 100);
+function setNewsSingapore(data) {
+  let updateUINewsSingapore = "";
+  dataNews = data.data;
+  dataNews.slice(0, 9).forEach((data) => {
+    const description = data.description.substring(0, 100);
     const results = {
       title: data.title,
-      description: decription,
+      description: description,
       thumbnail: data.urlToImage,
       url: data.url,
     };
-    updateUITopNews += UITopNews(results);
+    updateUINewsSingapore += UINewsSingapore(results);
   });
-  document.getElementById("TopNews").innerHTML = updateUITopNews;
+  document.getElementById("TopNews").innerHTML = updateUINewsSingapore;
 }
 
 function UIPopular(results) {
@@ -344,44 +340,47 @@ function UIPopular(results) {
 }
 
 // UI Topheadline
-function UITopHeadLine(results) {
+function UINewsIndonesia(results) {
   return `
   <div
-    class="bg-slate- active:opacity-50 bg-slate-200 rounded-sm overflow-hidden dark:bg-black dark:text-white"
-  >
-    <a href="${results.url}">
-      <img
-        src="${results.thumbnail}"
-        alt="test"
-        class="mb-2 rounded-sm shadow-sm"
-      />
-      <div class="px-2">
-        <h3
-          class="font-medium text-sm lg:truncate underline text-blue-500 mb-1"
-        >
-          ${results.title}
-        </h3>
-        <p class="text-[12px] font-thin hidden md:block">
-          ${results.description}
-        </p>
+  class="bg-slate-200 pb-2 rounded-md overflow-hidden shadow-lg hover:scale-105  duration-200"
+    >
+      <div
+        class="w-full bg-sky-300  overflow-hidden mb-3">
+        <img
+          src="${results.thumbnail}"
+          alt="post1"
+          class="w-full h-full sm:h-[200px] object-fit object-center"
+        />
       </div>
-    </a>
+      <a href="${results.url}" target="_blank">
+      <div class="px-2 md:px-[10px] lg:px-[16px] cursor-pointer">
+      <h4 class="text-md font-bold text-dark  blogs_select">
+        ${results.title}
+      </h4>
+     
+    </div>
+      </a>
   </div>
-    `;
+  
+  `;
 }
 
 // UI TopNews
-function UITopNews(results) {
+function UINewsSingapore(results) {
   return `
   <div
   class="bg-slate- active:opacity-50 bg-slate-200 rounded-sm overflow-hidden dark:bg-black dark:text-white"
 >
   <a href="${results.url}">
-    <img
-      src="${results.thumbnail}"
-      alt="${results.title}"
-      class="mb-2 rounded-sm shadow-sm"
-    />
+  <div
+  class="w-full bg-sky-300  overflow-hidden mb-3">
+  <img
+    src="${results.thumbnail}"
+    alt="post1"
+    class="w-full h-full sm:h-[200px] object-fit object-center"
+  />
+</div>
     <div class="px-2 md:pb-2">
       <h3
         class="font-medium text-sm lg:truncate underline text-blue-500 md:text-lg mb-1 truncate"

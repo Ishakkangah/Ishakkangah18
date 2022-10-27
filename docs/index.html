@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
+    <!-- <meta
       http-equiv="Content-Security-Policy"
       content="upgrade-insecure-requests"
-    />
+    /> -->
 
     <title>Personal Portfolio</title>
     <!-- LINK TAILWINDCSS -->
@@ -27,21 +27,21 @@
   <body class="dark:bg-black dark:text-white">
     <!-- 1. HEADER START  -->
     <header
-      class="flex bg-red-200 py-7 items-center absolute top-0 left-0 right-0 w-full h-12 shadow-lg md:h-14 lg:h-16 mb-36 dark:bg-black dark:text-white"
+      class="absolute top-0 left-0 right-0 mb-36 flex h-12 w-full items-center bg-red-200 py-7 shadow-lg dark:bg-black dark:text-white md:h-14 lg:h-16"
     >
       <div class="container mx-auto">
-        <div class="flex justify-between items-center relative">
+        <div class="relative flex items-center justify-between">
           <div
-            class="px-4 text-primary font-extrabold text-2xl md:text-2xl lg:text-3xl dark:bg-black dark:text-white"
+            class="px-4 text-2xl font-extrabold text-primary dark:bg-black dark:text-white md:text-2xl lg:text-3xl"
           >
             <a href="#">ISHAKAN</a>
           </div>
-          <div class="px-4 flex items-center justify-center">
+          <div class="flex items-center justify-center">
             <button
               type="submit"
               id="humberger"
               name="humberger"
-              class="block absolute right-4 lg:hidden"
+              class="absolute right-4 block lg:hidden"
             >
               <span class="humberger_line origin-top-left"></span>
               <span class="humberger_line"></span>
@@ -50,48 +50,48 @@
 
             <!-- Navbar -->
             <nav
-              class="hidden bg-red-200 absolute top-full right-4 w-full rounded-md shadow-lg z-50 lg:block lg:static lg:w-full lg:shadow-none lg:bg-transparent"
+              class="absolute top-full right-4 z-50 hidden w-full rounded-md bg-red-200 shadow-lg lg:static lg:block lg:w-full lg:bg-transparent lg:shadow-none"
             >
               <ul class="block lg:flex">
-                <li class="py-4 mx-8">
+                <li class="mx-8 py-4">
                   <a
                     href="#article"
-                    class="text-primary text-sm font-medium lg:text-lg"
+                    class="text-sm font-medium text-primary lg:text-lg"
                     >Articles</a
                   >
                 </li>
-                <li class="py-4 mx-8">
+                <li class="mx-8 py-4">
                   <a
                     href="#about"
-                    class="text-primary text-sm font-medium lg:text-lg"
+                    class="text-sm font-medium text-primary lg:text-lg"
                     >About</a
                   >
                 </li>
-                <li class="py-4 mx-8">
+                <li class="mx-8 py-4">
                   <a
                     href="#gallery"
-                    class="text-primary text-sm font-medium lg:text-lg"
+                    class="text-sm font-medium text-primary lg:text-lg"
                     >Galerry</a
                   >
                 </li>
-                <li class="py-4 mx-8">
+                <li class="mx-8 py-4">
                   <a
                     href="#portofolio"
-                    class="text-primary text-sm font-medium lg:text-lg"
+                    class="text-sm font-medium text-primary lg:text-lg"
                     >Portofolio</a
                   >
                 </li>
-                <li class="py-4 mx-8">
+                <li class="mx-8 py-4">
                   <a
                     href="#mitra"
-                    class="text-primary text-sm font-medium lg:text-lg"
+                    class="text-sm font-medium text-primary lg:text-lg"
                     >Mitra</a
                   >
                 </li>
-                <li class="py-4 mx-8">
+                <li class="mx-8 py-4">
                   <a
                     href="#skills"
-                    class="text-primary text-sm font-medium lg:text-lg"
+                    class="text-sm font-medium text-primary lg:text-lg"
                     >Skills</a
                   >
                 </li>
@@ -106,12 +106,12 @@
     <!-- 2. HEADER END -->
 
     <!-- 3. HOME START SECTION  -->
-    <section id="home" class="pt-20 lg:pt-24 dark:bg-black dark:text-white">
+    <section id="home" class="pt-[63px] dark:bg-black dark:text-white lg:pt-24">
       <div
-        class="container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-xl pt-5 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-xl bg-red-200 pt-5 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200"
       >
         <div
-          class="flex flex-wrap sm:flex-nowrap md:flex-nowrap md:flex-row-reverse"
+          class="flex flex-wrap sm:flex-nowrap md:flex-row-reverse md:flex-nowrap"
         >
           <!-- section-1 -->
           <div class="w-full self-center px-4">
@@ -121,24 +121,24 @@
               Hallo everyone 😀,
             </h1> -->
             <span
-              class="block text-xl font-bold text-dark mt-[2px] md:mt-[3px] md:text-2xl lg:text-3xl dark:bg-black dark:text-white"
+              class="mt-[2px] block text-xl font-bold text-dark dark:bg-black dark:text-white md:mt-[3px] md:text-2xl lg:text-3xl"
             >
               ISHAK ANGAH</span
             >
 
             <h2
-              class="mb-4 text-md font-extrabold sm:text-lg md:text-xl lg:font-bold lg:mb-6"
+              class="text-md mb-4 font-extrabold sm:text-lg md:text-xl lg:mb-6 lg:font-bold"
             >
               Programmer || Freelancer
             </h2>
             <blockquote
-              class="text-md font-medium text-secondary leading-snug mb-4"
+              class="text-md mb-4 font-medium leading-snug text-secondary"
             >
               " <span class="typing-text dark:bg-black dark:text-white"></span>
             </blockquote>
             <a
               href="https://api.whatsapp.com/send?phone=6289666035046&text=Halo%20Ishak%20Are%20You%20Bussy?"
-              class="bg-primary py-[6px] px-8 text-sm text-red-200 md:text-md lg:text-lg font-medium rounded-xl hover:outline-none hover:ring-2 hover:ring-primary hover:bg-red-200 hover:text-primary duration-300 ease-in-out active:bg-primary active:text-red-200 active:ring-light active:scale-105 shadow-md"
+              class="md:text-md rounded-xl bg-primary py-[6px] px-8 text-sm font-medium text-red-200 shadow-md duration-300 ease-in-out hover:bg-red-200 hover:text-primary hover:outline-none hover:ring-2 hover:ring-primary active:scale-105 active:bg-primary active:text-red-200 active:ring-light lg:text-lg"
               target="_blank"
             >
               Hire me
@@ -146,16 +146,16 @@
           </div>
           <!-- section 2 -->
           <div
-            class="w-full self-center px-4 flex justify-center md:col-start-1 relative overflow-hidden"
+            class="relative flex w-full justify-center self-center overflow-hidden px-4 md:col-start-1"
           >
             <div class="z-10">
               <img
                 src="./img/profil.png"
                 alt="Ishak_angah"
-                class="w-full h-full mx-auto"
+                class="mx-auto h-full w-full"
               />
             </div>
-            <span class="absolute w-full mt-7 h-full left-1/2 -translate-x-1/2">
+            <span class="absolute left-1/2 mt-7 h-full w-full -translate-x-1/2">
               <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                 <path
                   fill="#9a2727"
@@ -173,23 +173,23 @@
     <!-- 4. ABOUT SECTION START -->
     <section id="about" class="pt-6 dark:bg-black dark:text-white">
       <div
-        class="container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-xl py-3 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-xl bg-red-200 py-3 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200"
       >
-        <div class="flex flex-wrap md:flex-nowrap px-4 gap-10 md:gap-2">
+        <div class="flex flex-wrap gap-10 px-4 md:flex-nowrap md:gap-2">
           <!-- section 1 -->
           <div class="w-full">
             <h2
-              class="font-bold uppercase text-lg text-primary mb-3 lg:text-2xl"
+              class="mb-3 text-lg font-bold uppercase text-primary lg:text-2xl"
             >
               About
             </h2>
             <h4
-              class="font-bold text-lg text-dark mb-3 max-w-xl lg:text-xl lg:mb-5 dark:bg-black dark:text-white"
+              class="mb-3 max-w-xl text-lg font-bold text-dark dark:bg-black dark:text-white lg:mb-5 lg:text-xl"
             >
               Introduction
             </h4>
             <p
-              class="text-base font-thin text-secondary max-w-xl dark:bg-black dark:text-white"
+              class="max-w-xl text-base font-thin text-secondary dark:bg-black dark:text-white"
             >
               My name is Ishak comes from a simple family and I like to learn
               about coding it's very fun for me, keep learning, keep spirit and
@@ -199,20 +199,20 @@
           <!-- section 2 -->
           <div class="w-full">
             <h3
-              class="font-semibold text-lg text-dark mb-2 md:mb-3 lg:mb-[20px] max-w-xl lg:text-xl md:mt-[42px] dark:bg-black dark:text-white"
+              class="mb-2 max-w-xl text-lg font-semibold text-dark dark:bg-black dark:text-white md:mb-3 md:mt-[42px] lg:mb-[20px] lg:text-xl"
             >
               Follow me
             </h3>
             <p
-              class="text-base font-thin text-secondary max-w-xl mb-4 dark:bg-black dark:text-white"
+              class="mb-4 max-w-xl text-base font-thin text-secondary dark:bg-black dark:text-white"
             >
               You can get in touch with me by following my social media accounts
             </p>
-            <div class="flex flex-nowrap mr-2 items-center">
+            <div class="mr-2 flex animate-pulse flex-nowrap items-center">
               <!-- Icons Github -->
               <a
                 href="https://github.com/Ishakkangah"
-                class="w-9 h-9 flex items-center justify-center rounded-full border-slate-300 hover:text-slate-200 hover:bg-slate-300 duration-300"
+                class="flex h-9 w-9 items-center justify-center rounded-full border-slate-300 duration-300 hover:bg-slate-300 hover:text-slate-200"
                 target="_blank"
               >
                 <svg
@@ -231,7 +231,7 @@
               <!-- Icons facebokk -->
               <a
                 href="https://www.facebokk.com/iironii2"
-                class="w-9 h-9 flex items-center justify-center rounded-full border-slate-300 hover:text-slate-200 hover:bg-slate-300 duration-300"
+                class="flex h-9 w-9 items-center justify-center rounded-full border-slate-300 duration-300 hover:bg-slate-300 hover:text-slate-200"
                 target="_blank"
               >
                 <svg
@@ -250,7 +250,7 @@
               <!-- Icons Instagram -->
               <a
                 href="https://instagram.com/ishakk_angah?igshid=YmMyMTA2M2Y="
-                class="w-9 h-9 flex items-center justify-center rounded-full border-slate-300 hover:text-slate-200 hover:bg-slate-300 duration-300"
+                class="flex h-9 w-9 items-center justify-center rounded-full border-slate-300 duration-300 hover:bg-slate-300 hover:text-slate-200"
                 target="_blank"
               >
                 <svg
@@ -269,7 +269,7 @@
               <!-- Icons Whatshap -->
               <a
                 href="https://api.whatsapp.com/send?phone=6289666035046&text=Halo%20Ishak%20Are%20You%20Bussy?"
-                class="w-9 h-9 flex items-center justify-center rounded-full border-slate-300 hover:text-slate-200 hover:bg-slate-300 duration-300"
+                class="flex h-9 w-9 items-center justify-center rounded-full border-slate-300 duration-300 hover:bg-slate-300 hover:text-slate-200"
                 target="_b"
               >
                 <svg
@@ -288,7 +288,7 @@
               <!-- Icons Gmail -->
               <a
                 href="mailto:ishakkangah@gmail.com"
-                class="w-9 h-9 flex items-center justify-center rounded-full border-slate-300 hover:text-slate-200 hover:bg-slate-300 duration-300"
+                class="flex h-9 w-9 items-center justify-center rounded-full border-slate-300 duration-300 hover:bg-slate-300 hover:text-slate-200"
                 target="_blank"
               >
                 <svg
@@ -307,7 +307,7 @@
               <!-- Icons Telegram -->
               <a
                 href="t.me/iironii2 "
-                class="w-9 h-9 flex items-center justify-center rounded-full border-slate-300 hover:text-slate-200 hover:bg-slate-300 duration-300"
+                class="flex h-9 w-9 items-center justify-center rounded-full border-slate-300 duration-300 hover:bg-slate-300 hover:text-slate-200"
                 target="_blank"
               >
                 <svg
@@ -333,37 +333,37 @@
     <!-- GALLERY SECTION START -->
     <section id="gallery" class="mt-6 dark:bg-black dark:text-white">
       <div
-        class="px-4 container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-xl py-10 lg:py-20 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-xl bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
-        <div class="text-center font-bold text-lg mb-10 lg:mb-20">
+        <div class="mb-10 text-center text-lg font-bold lg:mb-20">
           <h2
-            class="uppercase text-primary lg:text-2xl mb-1 dark:bg-black dark:text-white"
+            class="mb-1 uppercase text-primary dark:bg-black dark:text-white lg:text-2xl"
           >
             Galerry
           </h2>
           <h3
-            class="mb-1 font-bold text-lg text-dark lg:text-xl dark:bg-black dark:text-white"
+            class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
           >
             In this gallery some photos that I show:
           </h3>
         </div>
 
         <div
-          class="relative aspect-video lg:w-[900px] mx-auto rounded-md"
+          class="relative mx-auto aspect-video rounded-md lg:w-[900px]"
           data-carousel
         >
           <div
-            class="absolute z-30 w-full h-full flex justify-between items-center"
+            class="absolute z-30 flex h-full w-full items-center justify-between"
           >
             <button
               data-carousel-button="prev"
-              class="ml-2 text-lg font-extrabold text-slate-400 border-[1px] border-red-50 border-opacity-10 active:border-opacity-20 active:text-slate-500 active:shadow-lg active:scale-105 md:text-5xl animate-pulse"
+              class="ml-2 animate-pulse border-[1px] border-red-50 border-opacity-10 text-lg font-extrabold text-slate-400 active:scale-105 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
             >
               &lArr;
             </button>
             <button
               data-carousel-button="next"
-              class="mr-2 text-lg font-extrabold text-slate-400 border-[1px] border-red-50 border-opacity-10 active:border-opacity-20 active:text-slate-500 active:shadow-lg active:scale-105 md:text-5xl animate-pulse"
+              class="mr-2 animate-pulse border-[1px] border-red-50 border-opacity-10 text-lg font-extrabold text-slate-400 active:scale-105 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
             >
               &rArr;
             </button>
@@ -371,94 +371,94 @@
           <!-- data slider -->
           <div data-slider>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
               data-active
             >
               <img
                 src="./img/profil1.jpg"
                 alt="Ishak1"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil2.jpg"
                 alt="Ishak2"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil3.jpg"
                 alt="Ishak3"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil4.jpg"
                 alt="Ishak4"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil5.jpg"
                 alt="ishak5"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil6.jpg"
                 alt="Ishak6"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil7.jpg"
                 alt="Ishak7"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil8.jpg"
                 alt="Ishak8"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil9.jpg"
                 alt="Ishak9"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/profil10.jpg"
                 alt="Ishak10"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full object-cover object-center"
               />
             </div>
           </div>
@@ -470,33 +470,33 @@
     <!-- SERTIFIKAT SECTION START -->
     <section id="sertifikat" class="mt-6 dark:bg-black dark:text-white">
       <div
-        class="px-4 container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-xl py-10 lg:py-20 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-xl bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
-        <div class="text-center font-bold text-lg mb-10 lg:mb-20">
-          <h2 class="uppercase text-primary lg:text-2xl mb-1">Certificate</h2>
+        <div class="mb-10 text-center text-lg font-bold lg:mb-20">
+          <h2 class="mb-1 uppercase text-primary lg:text-2xl">Certificate</h2>
           <h3
-            class="mb-1 font-bold text-lg text-dark lg:text-xl dark:bg-black dark:text-white"
+            class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
           >
             In this Certificate some photos that I show:
           </h3>
         </div>
 
         <div
-          class="relative aspect-video lg:w-[900px] mx-auto rounded-md"
+          class="relative mx-auto aspect-video rounded-md lg:w-[900px]"
           data-carousel
         >
           <div
-            class="absolute z-30 w-full h-full flex justify-between items-center"
+            class="absolute z-30 flex h-full w-full items-center justify-between"
           >
             <button
               data-carousel-button="prev"
-              class="ml-2 text-lg font-extrabold text-slate-400 border-[1px] border-red-50 border-opacity-10 active:border-opacity-20 active:text-slate-500 active:shadow-lg active:scale-105 md:text-5xl animate-pulse"
+              class="ml-2 animate-pulse border-[1px] border-red-50 border-opacity-10 text-lg font-extrabold text-slate-400 active:scale-105 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
             >
               &lArr;
             </button>
             <button
               data-carousel-button="next"
-              class="mr-2 text-lg font-extrabold text-slate-400 border-[1px] border-red-50 border-opacity-10 active:border-opacity-20 active:text-slate-500 active:shadow-lg active:scale-105 md:text-5xl animate-pulse"
+              class="mr-2 animate-pulse border-[1px] border-red-50 border-opacity-10 text-lg font-extrabold text-slate-400 active:scale-105 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
             >
               &rArr;
             </button>
@@ -504,58 +504,58 @@
           <!-- data slider -->
           <div data-slider>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200 animate-pulse"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
               data-active
             >
               <img
                 src="./img/1.jpg"
                 alt="1"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full animate-pulse object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/2.jpg"
                 alt="1"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full animate-pulse object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/3.jpg"
                 alt="1"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full animate-pulse object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/4.jpg"
                 alt="1"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full animate-pulse object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/5.jpg"
                 alt="1"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full animate-pulse object-cover object-center"
               />
             </div>
             <div
-              class="absolute h-full w-full rounded-md overflow-hidden opacity-0 inset-0 duration-200 delay-200"
+              class="absolute inset-0 h-full w-full overflow-hidden rounded-md opacity-0 delay-200 duration-200"
             >
               <img
                 src="./img/6.jpg"
                 alt="1"
-                class="w-full h-full object-cover object-center"
+                class="h-full w-full animate-pulse object-cover object-center"
               />
             </div>
           </div>
@@ -567,19 +567,19 @@
     <!-- SKILLS SECTION START -->
     <section id="skills" class="pt-6 dark:bg-black dark:text-white">
       <div
-        class="px-4 container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-xl py-10 lg:py-20 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-xl bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
-        <div class="text-center font-bold text-lg mb-10 lg:mb-20">
-          <h2 class="uppercase text-primary lg:text-2xl mb-1">My Skills</h2>
+        <div class="mb-10 text-center text-lg font-bold lg:mb-20">
+          <h2 class="mb-1 uppercase text-primary lg:text-2xl">Skills</h2>
           <h3
-            class="mb-1 font-bold text-lg text-dark lg:text-xl dark:bg-black dark:text-white"
+            class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
           >
             Skills I'm good at
           </h3>
         </div>
 
         <div
-          class="grid w-full grid-cols-2 sm:grid-cols-4 gap-3 justify-center items-center animate-pulse"
+          class="grid w-full animate-pulse grid-cols-2 items-center justify-center gap-3 sm:grid-cols-4"
         >
           <div class="flex justify-center">
             <img
@@ -617,30 +617,30 @@
     <!-- PORTFOLIO SECTION START -->
     <section id="portofolio" class="mt-6 dark:bg-black dark:text-white">
       <div
-        class="px-4 container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-xl py-10 lg:py-20 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-xl bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
-        <div class="text-center font-bold text-lg mb-10 lg:mb-20">
-          <h2 class="uppercase text-primary lg:text-2xl mb-1">Portfolio</h2>
+        <div class="mb-10 text-center text-lg font-bold lg:mb-20">
+          <h2 class="mb-1 uppercase text-primary lg:text-2xl">Portfolio</h2>
           <h3
-            class="mb-1 font-bold text-lg text-dark lg:text-xl dark:bg-black dark:text-white"
+            class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
           >
             Projects that I have made or that I have studied
           </h3>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:items-center gap-5">
+        <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:items-center">
           <div class="hover:animate-pulse">
             <div
-              class="bg-sky-500 aspect-video rounded-lg shadow-md mb-3 overflow-hidden"
+              class="mb-3 aspect-video overflow-hidden rounded-lg bg-sky-500 shadow-md"
             >
               <img
                 src="./img/perpustakaan1.png"
                 alt="libary"
-                class="object-cover object-center w-full h-full mb-1"
+                class="mb-1 h-full w-full object-cover object-center"
               />
             </div>
             <h2
-              class="max-w-lg text-lg lg:text-xl font-semibold text-dark mb-1 dark:bg-black dark:text-white"
+              class="mb-1 max-w-lg text-lg font-semibold text-dark dark:bg-black dark:text-white lg:text-xl"
             >
               Library
             </h2>
@@ -658,16 +658,16 @@
           </div>
           <div class="hover:animate-pulse">
             <div
-              class="bg-sky-500 aspect-video rounded-lg shadow-md mb-3 overflow-hidden"
+              class="mb-3 aspect-video overflow-hidden rounded-lg bg-sky-500 shadow-md"
             >
               <img
                 src="./img/Blog2.png"
                 alt="computer"
-                class="object-cover object-center w-full h-full mb-1"
+                class="mb-1 h-full w-full object-cover object-center"
               />
             </div>
             <h2
-              class="max-w-lg text-lg lg:text-xl font-semibold text-dark mb-1 dark:bg-black dark:text-white"
+              class="mb-1 max-w-lg text-lg font-semibold text-dark dark:bg-black dark:text-white lg:text-xl"
             >
               Blog
             </h2>
@@ -685,16 +685,16 @@
           </div>
           <div class="hover:animate-pulse">
             <div
-              class="bg-sky-500 aspect-video rounded-lg shadow-md mb-3 overflow-hidden"
+              class="mb-3 aspect-video overflow-hidden rounded-lg bg-sky-500 shadow-md"
             >
               <img
                 src="./img/Ecommerce3.png"
                 alt="computer"
-                class="object-cover object-center w-full h-full mb-1"
+                class="mb-1 h-full w-full object-cover object-center"
               />
             </div>
             <h2
-              class="max-w-lg text-lg lg:text-xl font-semibold text-dark mb-1 dark:bg-black dark:text-white"
+              class="mb-1 max-w-lg text-lg font-semibold text-dark dark:bg-black dark:text-white lg:text-xl"
             >
               E-commerce
             </h2>
@@ -712,16 +712,16 @@
           </div>
           <div class="hover:animate-pulse">
             <div
-              class="bg-sky-500 aspect-video rounded-lg shadow-md mb-3 overflow-hidden"
+              class="mb-3 aspect-video overflow-hidden rounded-lg bg-sky-500 shadow-md"
             >
               <img
                 src="./img/portfolio4.png"
                 alt="computer"
-                class="object-cover object-center w-full h-full mb-1"
+                class="mb-1 h-full w-full object-cover object-center"
               />
             </div>
             <h2
-              class="max-w-lg text-lg lg:text-xl font-semibold text-dark mb-1 dark:bg-black dark:text-white"
+              class="mb-1 max-w-lg text-lg font-semibold text-dark dark:bg-black dark:text-white lg:text-xl"
             >
               Portofolio
             </h2>
@@ -739,44 +739,44 @@
     <!--  CLIENTS SECTION START -->
     <section id="mitra" class="mt-6 dark:bg-black dark:text-white">
       <div
-        class="px-4 container mx-auto bg-gray-800 rounded-tl-lg rounded-tr-lg py-10 lg:py-20 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-tl-lg rounded-tr-lg bg-gray-800 px-4 py-10 dark:bg-black dark:text-white lg:py-20"
       >
-        <div class="text-center font-bold text-lg mb-10 lg:mb-20">
-          <h2 class="uppercase text-primary lg:text-2xl mb-1">Mitra</h2>
-          <h3 class="mb-1 font-bold text-lg text-slate-200 lg:text-xl">
+        <div class="mb-10 text-center text-lg font-bold lg:mb-20">
+          <h2 class="mb-1 uppercase text-primary lg:text-2xl">Mitra</h2>
+          <h3 class="mb-1 text-lg font-bold text-slate-200 lg:text-xl">
             Mitra who have worked together
           </h3>
         </div>
 
         <div
-          class="w-full grid grid-cols-4 md:grid-cols-4 gap-5 lg:gap-20 justify-end items-center animate-pulse"
+          class="grid w-full animate-pulse grid-cols-4 items-center justify-end gap-5 md:grid-cols-4 lg:gap-20"
         >
-          <div class="w-full flex justify-center items-center">
+          <div class="flex w-full items-center justify-center">
             <img
               src="./img/binas.png"
               alt="gojek"
-              class="lg:w-1/2 object-center object-cover"
+              class="object-cover object-center lg:w-1/2"
             />
           </div>
-          <div class="w-full flex justify-center items-center">
+          <div class="flex w-full items-center justify-center">
             <img
               src="./img/smk.png"
               alt="SMKN1KAYUAGUNG"
-              class="lg:w-1/2 object-center object-cover"
+              class="object-cover object-center lg:w-1/2"
             />
           </div>
-          <div class="w-full flex justify-center items-center">
+          <div class="flex w-full items-center justify-center">
             <img
               src="./img/vitindo.png"
               alt="vvt"
-              class="lg:w-1/2 object-center object-cover"
+              class="object-cover object-center lg:w-1/2"
             />
           </div>
-          <div class="w-full flex justify-center items-center">
+          <div class="flex w-full items-center justify-center">
             <img
               src="./img/kominfo.png"
               alt="kominfo"
-              class="lg:w-1/2 object-center object-cover"
+              class="object-cover object-center lg:w-1/2"
             />
           </div>
         </div>
@@ -787,28 +787,28 @@
     <!--  BLOG SECTION START -->
     <section id="article" class="mt-6 dark:bg-black dark:text-white">
       <div
-        class="px-4 container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-tl-lg rounded-tr-lg py-10 lg:py-20 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-tl-lg rounded-tr-lg bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
-        <div class="text-center font-bold text-lg mb-10 lg:mb-20">
+        <div class="mb-10 text-center text-lg font-bold lg:mb-20">
           <h2
-            class="uppercase text-primary lg:text-2xl mb-1 dark:bg-black dark:text-white"
+            class="mb-1 uppercase text-primary dark:bg-black dark:text-white lg:text-2xl"
           >
             Articles
           </h2>
           <h3
-            class="mb-1 font-bold text-lg text-dark lg:text-xl dark:bg-black dark:text-white"
+            class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
           >
             POPULAR NEWS
           </h3>
         </div>
         <!-- search -->
-        <label class="relative block lg:w-1/2 mb-5">
+        <label class="relative mb-5 block lg:w-1/2">
           <span class="sr-only">Search</span>
           <span class="absolute inset-y-0 left-0 flex items-center pl-2">
             <i class="fa fa-search" aria-hidden="true"></i>
           </span>
           <input
-            class="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
+            class="block w-full rounded-md border border-slate-300 bg-white py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
             placeholder="Search for anything..."
             type="text"
             id="search"
@@ -817,44 +817,37 @@
         </label>
         <div class="mb-10">
           <div
-            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5 lg:gap-5 blogs"
+            class="blogs grid grid-cols-1 gap-5 sm:grid-cols-2 md:grid-cols-3 lg:gap-5 xl:grid-cols-4"
           >
             _________________________________
           </div>
-          <div class="mx-auto mt-10">
-            <div
-              class="w-1/2 lg:w-1/3 text-primary text-center bg-transparent ring-2 ring-red-100 py-1 md:py-3 rounded-full mx-auto flex justify-center items-center shadow-lg cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-200 active:opacity-50 dark:bg-primary dark:text-white animate-bounce"
-              id="data_selengkapnya"
-            >
-              _______________________________
-            </div>
-          </div>
+          <div class="mx-auto mt-10"></div>
         </div>
 
-        <div class="flex flex-col md:flex-row gap-5 justify-between">
+        <div class="flex flex-col justify-between gap-5 md:flex-row">
           <div class="md:basis-9/12">
             <div
-              class="w-full text-lg font-bold text-dark mb-3 md:mb-10 dark:bg-black dark:text-white"
+              class="mb-3 w-full text-lg font-bold text-dark dark:bg-black dark:text-white md:mb-10"
             >
               <h2 class="dark:bg-black dark:text-white md:text-xl md:font-bold">
                 Top News right now
               </h2>
             </div>
             <div
-              class="w-full grid lg:grid-cols-3 md:grid-cols-2 justify-center gap-2 text-sm font-thin"
+              class="grid w-full justify-center gap-2 text-sm font-thin md:grid-cols-2 lg:grid-cols-3"
               id="TopNews"
             >
               _________________________________
             </div>
           </div>
           <div class="md:basis-3/12">
-            <div class="w-full text-lg font-bold text-dark mb-3">
+            <div class="mb-3 w-full text-lg font-bold text-dark">
               <h2 class="dark:bg-black dark:text-white md:text-xl md:font-bold">
                 Top business articles in the US right now
               </h2>
             </div>
             <div
-              class="w-full grid ld:grid-cols-2 justify-center gap-2 text-sm font-thin"
+              class="ld:grid-cols-2 grid w-full justify-center gap-2 text-sm font-thin"
               id="topHeadLine"
             >
               ________________________________
@@ -868,35 +861,35 @@
     <!-- MESSAGE SECTION START -->
     <section id="message" class="mt-6 dark:bg-black dark:text-white">
       <div
-        class="px-4 container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-xl py-10 lg:py-20 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-xl bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
-        <div class="text-center font-bold text-lg mb-10 lg:mb-20">
-          <h2 class="uppercase text-primary lg:text-2xl mb-1">Send Message</h2>
+        <div class="mb-10 text-center text-lg font-bold lg:mb-20">
+          <h2 class="mb-1 uppercase text-primary lg:text-2xl">Message</h2>
           <h3
-            class="mb-1 font-bold text-lg text-dark lg:text-xl dark:bg-black dark:text-white"
+            class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
           >
             Contact me
           </h3>
         </div>
 
         <span
-          class="text-[12px] sm:text-[16px] lg:text-[18px] font-semibold lg:font-bold hidden text-center"
+          class="hidden text-center text-[12px] font-semibold sm:text-[16px] lg:text-[18px] lg:font-bold"
           id="alert"
         >
           ____________________________________
         </span>
         <div>
-          <div class="max-w-2xl mx-auto">
-            <div class="pb-3 w-full">
+          <div class="mx-auto max-w-2xl">
+            <div class="w-full pb-3">
               <label for="name">
                 <span
-                  class="text-[12px] sm:text-[16px] lg:text-[18px] font-semibold lg:font-bold text-secondary sm:mb-10 lg:mb-1 dark:bg-black dark:text-white"
+                  class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
                   >Name</span
                 >
                 <input
                   type="text"
                   id="name"
-                  class="w-full font-thin text-sm px-[10px] py-[4px] md:py-[5px] lg:py-[10px] rounded-sm ring-0 border-none outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 invalid:border-red-700 invalid:text-red-600 focus:invalid:border-red-700 focus:invalid:ring-red-700 placeholder:text-[12px] md:placeholder:text-[14px]"
+                  class="w-full rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
                   placeholder="Field name is required"
                 />
               </label>
@@ -904,13 +897,13 @@
             <div class="pb-3">
               <label for="email">
                 <span
-                  class="text-[12px] sm:text-[16px] lg:text-[18px] font-semibold lg:font-bold text-secondary sm:mb-10 lg:mb-1 dark:bg-black dark:text-white"
+                  class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
                   >Email</span
                 >
                 <input
                   type="email"
                   id="email"
-                  class="w-full font-thin text-sm px-[10px] py-[4px] md:py-[5px] lg:py-[10px] rounded-sm ring-0 border-none outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 invalid:border-red-700 invalid:text-red-600 focus:invalid:border-red-700 focus:invalid:ring-red-700 placeholder:text-[12px] md:placeholder:text-[14px]"
+                  class="w-full rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
                   placeholder="Field email is required"
                 />
               </label>
@@ -918,24 +911,24 @@
             <div class="pb-3">
               <label for="message">
                 <span
-                  class="text-[12px] sm:text-[16px] lg:text-[18px] font-semibold lg:font-bold text-secondary sm:mb-10 lg:mb-1 dark:bg-black dark:text-white"
+                  class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
                   >Message</span
                 >
                 <textarea
                   type="text"
                   id="textMessage"
-                  class="w-full resize font-thin text-sm px-[10px] py-[4px] md:py-[5px] lg:py-[10px] rounded-sm ring-0 border-none outline-none focus:ring-2 focus:ring-sky-500 focus:border-sky-500 invalid:border-red-700 invalid:text-red-600 focus:invalid:border-red-700 focus:invalid:ring-red-700 placeholder:text-[12px] md:placeholder:text-[14px]"
+                  class="w-full resize rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
                   placeholder="Field Message is required"
                 ></textarea>
               </label>
             </div>
             <div class="pb-3">
               <button
-                class="bg-primary w-full md:w-1/4 py-[6px] text-sm text-red-200 md:text-md lg:text-lg font-medium rounded-md shadow-lg hover:outline-none hover:ring-2 hover:ring-primary hover:bg-red-200 hover:text-primary duration-300 ease-in-out active:bg-primary active:text-red-200 active:ring-light active:scale-105 group flex justify-center items-center"
+                class="md:text-md group flex w-full items-center justify-center rounded-md bg-primary py-[6px] text-sm font-medium text-red-200 shadow-lg duration-300 ease-in-out hover:bg-red-200 hover:text-primary hover:outline-none hover:ring-2 hover:ring-primary active:scale-105 active:bg-primary active:text-red-200 active:ring-light md:w-1/4 lg:text-lg"
                 id="sendMessage"
               >
                 <span
-                  class="animate-spin hidden group-active:block group-active:duration-500"
+                  class="hidden animate-spin group-active:block group-active:duration-500"
                 >
                   <i class="fa fa-spinner" aria-hidden="true"></i>
                 </span>
@@ -951,19 +944,19 @@
     <!--  CLIENTS SECTION START -->
     <section id="location" class="mt-6 dark:bg-black dark:text-white">
       <div
-        class="px-4 container mx-auto bg-red-200 sm:bg-red-100 md:bg-red-200 rounded-xl py-10 lg:py-20 dark:bg-black dark:text-white"
+        class="container mx-auto rounded-xl bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
       >
-        <div class="text-center font-bold text-lg mb-5 lg:mb-20">
-          <h2 class="uppercase text-primary lg:text-2xl mb-1">Location</h2>
+        <div class="mb-5 text-center text-lg font-bold lg:mb-20">
+          <h2 class="mb-1 uppercase text-primary lg:text-2xl">Location</h2>
           <h3
-            class="mb-1 font-bold text-lg text-dark lg:text-xl dark:bg-black dark:text-white"
+            class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
           >
             Ogan Komering Ilir - Indonesia
           </h3>
         </div>
 
         <div
-          class="rounded-lg shadow-md mb-3 overflow-hidden flex justify-center items-center"
+          class="mb-3 flex items-center justify-center overflow-hidden rounded-lg"
         >
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d322.8184850512167!2d104.83078993413103!3d-3.390868124137917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e3bee0edc84d3a7%3A0x80cc8fc4f782fe58!2sJl.%20Merdeka%2C%20Kec.%20Kayu%20Agung%2C%20Kabupaten%20Ogan%20Komering%20Ilir%2C%20Sumatera%20Selatan!5e0!3m2!1sid!2sid!4v1666795064342!5m2!1sid!2sid"
@@ -971,7 +964,7 @@
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            class="w-full h-full sm:w-[70%] sm:h-[500px]"
+            class="h-full w-full sm:h-[500px] sm:w-[70%]"
           ></iframe>
         </div>
       </div>
@@ -980,14 +973,14 @@
     <!-- FOOTER SECTION START -->
     <section id="footer" class="pt-6 dark:bg-black dark:text-white">
       <div
-        class="bg-gray-800 text-slate-200 text-sm font-thin py-20 dark:bg-black dark:text-white"
+        class="bg-gray-800 py-20 text-sm font-thin text-slate-200 dark:bg-black dark:text-white"
       >
         <div class="container mx-auto px-4">
           <div
-            class="grid grid-cols-2 md:grid-cols-4 justify-center gap-4 mb-7"
+            class="mb-7 grid grid-cols-2 justify-center gap-4 md:grid-cols-4"
           >
             <div>
-              <h5 class="uppercase text-md font-semibold cursor-pointer mb-1">
+              <h5 class="text-md mb-1 cursor-pointer font-semibold uppercase">
                 Media
               </h5>
               <div class="flex flex-col text-slate-400">
@@ -995,7 +988,7 @@
                   <a
                     href="https://instagram.com/ishakk_angah?igshid=YmMyMTA2M2Y="
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Instagram</a
                   >
                 </div>
@@ -1003,7 +996,7 @@
                   <a
                     href="https://www.facebokk.com/iironii2"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Facebook</a
                   >
                 </div>
@@ -1011,7 +1004,7 @@
                   <a
                     href="https://api.whatsapp.com/send?phone=6289666035046&text=Halo%20Ishak%20Are%20You%20Bussy?"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Whatshap</a
                   >
                 </div>
@@ -1019,7 +1012,7 @@
                   <a
                     href="t.me/iironii2 "
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Telegram</a
                   >
                 </div>
@@ -1027,7 +1020,7 @@
                   <a
                     href="https://github.com/Ishakkangah"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Github</a
                   >
                 </div>
@@ -1035,35 +1028,35 @@
                   <a
                     href="mailto:ishakkangah@gmail.com"
                     target="blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Gmail</a
                   >
                 </div>
                 <div>
                   <a
                     href="#"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Linkid</a
                   >
                 </div>
                 <div>
                   <a
                     href="#"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Youtube</a
                   >
                 </div>
               </div>
             </div>
             <div>
-              <h5 class="uppercase text-md font-semibold cursor-pointer mb-1">
+              <h5 class="text-md mb-1 cursor-pointer font-semibold uppercase">
                 Skills
               </h5>
               <div class="flex flex-col text-slate-400">
                 <div>
                   <a
                     href="#"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >HTML</a
                   >
                 </div>
@@ -1071,7 +1064,7 @@
                   <a
                     href="https://www.w3.org/Style/CSS/Overview.en.html"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >CSS</a
                   >
                 </div>
@@ -1079,7 +1072,7 @@
                   <a
                     href="JavaScript.comhttps://www.javascript.com"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Javascript</a
                   >
                 </div>
@@ -1087,7 +1080,7 @@
                   <a
                     href="https://www.mysql.com/"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >MySql</a
                   >
                 </div>
@@ -1095,7 +1088,7 @@
                   <a
                     href="https://getbootstrap.com/"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Bootstrap</a
                   >
                 </div>
@@ -1103,7 +1096,7 @@
                   <a
                     href="https://tailwindcss.com"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >TailwindCss</a
                   >
                 </div>
@@ -1111,7 +1104,7 @@
                   <a
                     href="https://www.codeigniter.com"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Codeigniter</a
                   >
                 </div>
@@ -1119,7 +1112,7 @@
                   <a
                     href="Vue.jshttps://v2.vuejs.org"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Vue 2</a
                   >
                 </div>
@@ -1127,7 +1120,7 @@
                   <a
                     href="https://reactjs.org"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >React</a
                   >
                 </div>
@@ -1135,7 +1128,7 @@
                   <a
                     href="https://laravel.com"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Laravel</a
                   >
                 </div>
@@ -1143,20 +1136,21 @@
                   <a
                     href="https://github.com/"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >Git - Github</a
                   >
                 </div>
               </div>
             </div>
             <div>
-              <h5 class="uppercase text-md font-semibold cursor-pointer mb-1">
+              <h5 class="text-md mb-1 cursor-pointer font-semibold uppercase">
                 Stack
               </h5>
               <div class="flex flex-col text-slate-400">
                 <div>
                   <a
                     href="https://practicum.com/id-idn/web-beta/?gclid=Cj0KCQjwkt6aBhDKARIsAAyeLJ09-Q8dFbiWiBOqXr3MFt2s60DyIuIVJ0tijwHtTM_fq1t2I9RabEoaAh6TEALw_wcB"
+                    class="hover:bg-sky-500"
                     target="_blank"
                   >
                     Frontend developer</a
@@ -1165,6 +1159,7 @@
                 <div>
                   <a
                     href="https://www.binaracademy.com/blog/tugas-back-end-developer-dan-skillsnya"
+                    class="hover:bg-sky-500"
                     target="_blank"
                     >Backend developer</a
                   >
@@ -1173,20 +1168,21 @@
                   <a
                     href="https://www.topkarir.com/article/detail/7-kesalahan-fatal-yang-harus-dihindari-freelancer-pemula"
                     target="_blank"
+                    class="hover:bg-sky-500"
                     >Freelancer</a
                   >
                 </div>
               </div>
             </div>
             <div>
-              <h5 class="uppercase text-md font-semibold cursor-pointer mb-1">
+              <h5 class="text-md mb-1 cursor-pointer font-semibold uppercase">
                 Educations
               </h5>
               <div class="flex flex-col text-slate-400">
                 <div>
                   <a
-                    href="#"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    href="http://10600672.siap-sekolah.com/sekolah-profil/"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >SDN 3 KAG</a
                   >
                 </div>
@@ -1194,24 +1190,24 @@
                   <a
                     href="https://www.smpn1kayuagung.sch.id/statis-7-deskripsitentangsmpnegeri1kayuagung.html"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >SMPN 1 KAG</a
                   >
                 </div>
                 <div>
                   <a
-                    href="SMKN 1 Kayuagunghttps://www.smkn1kayuagung.sch.id"
+                    href="https://www.smkn1kayuagung.sch.id/"
                     target="_blank"
                     |
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >SMAN 1 KAG</a
                   >
                 </div>
                 <div>
                   <a
-                    href="Bina Sriwijaya Palembanghttps://binasriwijaya.ac.id"
+                    href="https://binasriwijaya.ac.id/"
                     target="_blank"
-                    class="cursor-pointer hover:text-blue-500 transition-all duration-150"
+                    class="cursor-pointer transition-all duration-150 hover:text-blue-500"
                     >BINASRIWIJAYA PLG</a
                   >
                 </div>
@@ -1220,12 +1216,12 @@
           </div>
           <hr class="mb-7 border-gray-700" />
           <!-- bootom-footer  -->
-          <div class="text-center text-sm font-thin mt-3">
+          <div class="mt-3 text-center text-sm font-thin">
             <p class="mb-1">
               This portfolio was created with the aim of introducing myself and
               inviting you to be friends
             </p>
-            <div class="mr-1 block w-full mx-auto mode cursor-pointer">
+            <div class="mode mx-auto mr-1 block w-full cursor-pointer">
               <div id="malam" data-mode="malam">
                 <i class="fa fa-moon-o" aria-hidden="true"></i>
               </div>
@@ -1234,29 +1230,40 @@
               </div>
             </div>
             <p>
-              Ogan Komering Ilir -
               <a
-                class="font-semibold text-white hover:text-sky-500"
+                href="https://news.kaboki.go.id/"
+                class="hover:bg-sky-500 hover:underline"
+                >Ogan Komering Ilir</a
+              >
+              -
+              <a
+                class="font-semibold text-white hover:text-sky-500 hover:underline"
                 href="https://id.wikipedia.org/wiki/Indonesia"
                 target="_blank"
                 >Indonesia</a
               >
             </p>
             <p class="mb-1">
-              <span class="font-semibold"> © Copyright 2022 Ishakangah</span>.
-              All rights reserved. Yes, all of them
+              <span class="font-semibold">
+                © Copyright 2022
+                <a
+                  href="Http://ishak21.000webhostapp.com"
+                  class="hover:text-blue-500 hover:underline"
+                  >Ishakangah</a
+                ></span
+              >. All rights reserved. Yes, all of them
             </p>
             <p>I love u 😘</p>
           </div>
         </div>
 
         <!-- BUTOON TO TOP -->
-        <div
-          class="fixed bottom-3 right-4 md:right-9 h-9 w-9 md:h-10 md:w-10 bg-primary text-slate-200 z-[9999] flex justify-center items-center rounded-lg shadow-md cursor-pointer active:scale-105 active:bg-red-500"
+        <a
+          href="#"
+          class="fixed bottom-3 right-4 z-[9999] hidden h-9 w-9 cursor-pointer items-center justify-center rounded-lg bg-primary text-slate-200 shadow-md hover:animate-pulse active:scale-105 active:bg-red-500 md:right-9 md:h-10 md:w-10"
           id="to_top"
-        >
-          <i class="fa fa-arrow-up" aria-hidden="true"></i>
-        </div>
+          ><i class="fa fa-arrow-up" aria-hidden="true"></i
+        ></a>
       </div>
     </section>
     <!-- FOOTER SECTION END -->
