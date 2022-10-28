@@ -192,8 +192,44 @@ btnMode.forEach((mode) => {
 
 // GET API ARTICLE
 const data_selengkapnya = document.getElementById("data_selengkapnya");
-const blogs = document.querySelector(".blogs");
-let api, values, dataNewsPopular, allDataBlogs;
+const searchArticles = document.getElementById("search");
+const alertArticles = document.querySelector(".alertArticles");
+
+searchArticles.addEventListener("keyup", function (e) {
+  // jika element key adalah enter dan isi dari input searrch ada
+  if (e.key === "Enter" && searchArticles.value != "") {
+    const data = searchArticles.value;
+    getSearchArticles(data);
+  }
+});
+
+function getSearchArticles(data) {
+  const api = `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&q=${data}`;
+  data = fetch(api).then((res) => {
+    if (res.status == 200) {
+      return res.json();
+    } else {
+      alertArticles.innerHTML = res.statusText;
+    }
+  });
+  data.then((d) => {
+    let UpdateUINewsIndonesia = "";
+    values = d.results;
+    values.forEach((value) => {
+      const results = {
+        title: value.title,
+        description: value.description.substring(0, 100),
+        url: value.link,
+        thumbnail: value.image_url,
+        category: value.category,
+        published: value.pubDate,
+      };
+      console.log("result", results);
+      UpdateUINewsIndonesia += UINewsIndonesia(results);
+    });
+    document.querySelector(".blogs").innerHTML = UpdateUINewsIndonesia;
+  });
+}
 
 // tampilkan data article populer
 (function getData() {
@@ -207,12 +243,6 @@ function fetchData() {
     fetch(
       `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&country=id,ca`
     ),
-    // fetch(
-    //   `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=us`
-    // ),
-    // fetch(
-    //   `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=sg`
-    // ),
   ])
     .then((responses) => {
       return Promise.all(
@@ -222,25 +252,19 @@ function fetchData() {
       );
     })
     .then((data) => {
-      allDataBlogs = data;
       getDataBlogs(data);
     });
 }
 
 function getDataBlogs(data) {
-  const [newsUSA, newsIndonesia, newsSingapore] = data;
-  const nUSA = newsUSA;
-  const nIndonesia = newsIndonesia;
-  const nSingapore = newsSingapore;
-  // const dataTopNews = Array.from(topNews.articles);
-  setNewsUSA(nUSA);
-  // setNewsIndonesia(nIndonesia);
-  // setNewsSingapore(nSingapore);
+  const [NewsIndonesia] = data;
+  const nIndonesia = NewsIndonesia;
+  setNewsIndonesia(nIndonesia);
 }
 
-// Set USA / AMERIKA SERIKAT News
-function setNewsUSA(data) {
-  let UpdateUINewsUSA = "";
+// Set Indonesia News
+function setNewsIndonesia(data) {
+  let UpdateUINewsIndonesia = "";
   dataNews = data.results;
   dataNews.forEach((data) => {
     const description = data.description.substring(0, 100);
@@ -252,49 +276,13 @@ function setNewsUSA(data) {
       category: data.category,
       published: data.pubDate,
     };
-    UpdateUINewsUSA += UIPopular(results);
+    UpdateUINewsIndonesia += UINewsIndonesia(results);
   });
-  document.querySelector(".blogs").innerHTML = UpdateUINewsUSA;
+  document.querySelector(".blogs").innerHTML = UpdateUINewsIndonesia;
 }
 
-// Set Indonesia News
-function setNewsIndonesia(data) {
-  let updateUINewsIndonesia = "";
-  dataNews = data.data;
-  dataNews.slice(0, 6).forEach((data) => {
-    const results = {
-      author: data.author,
-      title: data.title,
-      description: data.description.substring(0, 100),
-      url: data.url,
-      source: data.source,
-      thumbnail: data.image,
-      category: data.category,
-      published: data.published_at,
-    };
-    updateUINewsIndonesia += UINewsIndonesia(results);
-  });
-  document.getElementById("topHeadLine").innerHTML = updateUINewsIndonesia;
-}
-
-// Set data topNews
-function setNewsSingapore(data) {
-  let updateUINewsSingapore = "";
-  dataNews = data.data;
-  dataNews.slice(0, 9).forEach((data) => {
-    const description = data.description.substring(0, 100);
-    const results = {
-      title: data.title,
-      description: description,
-      thumbnail: data.urlToImage,
-      url: data.url,
-    };
-    updateUINewsSingapore += UINewsSingapore(results);
-  });
-  document.getElementById("TopNews").innerHTML = updateUINewsSingapore;
-}
-
-function UIPopular(results) {
+// UPDATE UI News Indonesia
+function UINewsIndonesia(results) {
   return `
   <div
   class="bg-slate-200 pb-2 rounded-md overflow-hidden shadow-lg hover:scale-105  duration-200"
@@ -313,7 +301,7 @@ function UIPopular(results) {
         ${results.title}
       </h2>
       <p class="text-[12px] font-thin text-sky-400 mb-1">
-        ${results.author}
+        ${results.category}
       </p>
       <p class="text-[11px] font-thin text-secondary MB-2">
         ${results.published}
@@ -330,66 +318,3 @@ function UIPopular(results) {
   
   `;
 }
-
-// UI Topheadline
-function UINewsIndonesia(results) {
-  return `
-  <div
-  class="bg-slate-200 pb-2 rounded-md overflow-hidden shadow-lg hover:scale-105  duration-200"
-    >
-      <div
-        class="w-full bg-sky-300  overflow-hidden mb-3">
-        <img
-          src="${results.thumbnail}"
-          alt="post1"
-          class="w-full h-full sm:h-[200px] object-fit object-center"
-        />
-      </div>
-      <a href="${results.url}" target="_blank">
-      <div class="px-2 md:px-[10px] lg:px-[16px] cursor-pointer">
-      <h4 class="text-md font-bold text-dark  blogs_select">
-        ${results.title}
-      </h4>
-     
-    </div>
-      </a>
-  </div>
-  
-  `;
-}
-
-// UI TopNews
-function UINewsSingapore(results) {
-  return `
-  <div
-  class="bg-slate- active:opacity-50 bg-slate-200 rounded-sm overflow-hidden dark:bg-black dark:text-white"
->
-  <a href="${results.url}">
-  <div
-  class="w-full bg-sky-300  overflow-hidden mb-3">
-  <img
-    src="${results.thumbnail}"
-    alt="post1"
-    class="w-full h-full sm:h-[200px] object-fit object-center"
-  />
-</div>
-    <div class="px-2 md:pb-2">
-      <h3
-        class="font-medium text-sm lg:truncate underline text-blue-500 md:text-lg mb-1 truncate"
-      >${results.title}</h3>
-      <p
-        class="text-[12px] md:text-base font-thin md:block md:font-medium"
-      >${results.description}
-      </p>
-      <a
-        href="${results.url}"
-        class="text-slate-200 text-sm md:text-bold cursor-pointer w-full bg-primary text-center rounded-lg shadow-md py-2 block my-4"
-        target="_blank"
-        >Read more</a
-      >
-    </div>
-  </a>
-</div>    `;
-}
-
-// VISITOR
