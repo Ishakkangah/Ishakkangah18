@@ -200,19 +200,19 @@ let api, values, dataNewsPopular, allDataBlogs;
   fetchData();
 })();
 
-// 3cbf72d3597cf2b6772b2c51137c3892
+// pub_12793f8312d35521e2915beaf5408025fe4c9
 // FETCH DATA API
 function fetchData() {
   Promise.all([
     fetch(
-      `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=id`
+      `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&country=id,ca`
     ),
-    fetch(
-      `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=us`
-    ),
-    fetch(
-      `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=sg`
-    ),
+    // fetch(
+    //   `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=us`
+    // ),
+    // fetch(
+    //   `http://api.mediastack.com/v1/news?access_key=3cbf72d3597cf2b6772b2c51137c3892& country=sg`
+    // ),
   ])
     .then((responses) => {
       return Promise.all(
@@ -234,25 +234,23 @@ function getDataBlogs(data) {
   const nSingapore = newsSingapore;
   // const dataTopNews = Array.from(topNews.articles);
   setNewsUSA(nUSA);
-  setNewsIndonesia(nIndonesia);
-  setNewsSingapore(nSingapore);
+  // setNewsIndonesia(nIndonesia);
+  // setNewsSingapore(nSingapore);
 }
 
 // Set USA / AMERIKA SERIKAT News
 function setNewsUSA(data) {
   let UpdateUINewsUSA = "";
-  dataNews = data.data.slice(0, 16);
+  dataNews = data.results;
   dataNews.forEach((data) => {
     const description = data.description.substring(0, 100);
     const results = {
-      author: data.author,
       title: data.title,
       description: description,
-      url: data.url,
-      source: data.source,
-      thumbnail: data.image,
+      url: data.link,
+      thumbnail: data.image_url,
       category: data.category,
-      published: data.published_at,
+      published: data.pubDate,
     };
     UpdateUINewsUSA += UIPopular(results);
   });
