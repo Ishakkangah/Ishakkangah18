@@ -197,13 +197,11 @@ const alertArticles = document.querySelector(".alertArticles");
 
 // SEARCH NEWS
 searchArticles.addEventListener("keyup", function (e) {
-  if (searchArticles.value != "") {
+  if (e.key == "Enter" && searchArticles.value != "") {
+    alertArticles.classList.add("alertSuccess");
+    alertArticles.innerHTML = `Getting Articles...`;
     const data = searchArticles.value;
     getSearchArticles(data);
-    if (searchArticles.value === "") {
-      alertArticles.classList.add("hidden");
-      alertArticles.classList.remove("alertErorr");
-    }
   }
 });
 
@@ -218,6 +216,9 @@ function getSearchArticles(data) {
     }
   });
   data.then((d) => {
+    alertArticles.classList.replace("alertSuccess", "alertEroor");
+    alertArticles.classList.remove("alertSuccess");
+
     let UpdateUINewsIndonesia = "";
     values = d.results;
     values.forEach((value) => {
@@ -477,7 +478,7 @@ function UIWeather(data) {
     </tr>
     <tr>
       <td class="dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
-        Humadity
+        Humidity
       </td>
       <td class="dark:border-[1px] dark:border-slate-300 pl-2">
         <span id="humadity">${data.humidity}</span> %

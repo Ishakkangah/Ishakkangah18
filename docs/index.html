@@ -781,7 +781,7 @@
     </section>
     <!-- CLIENTS SECTION END -->
 
-    <!-- BLOG SECTION START -->
+    <!-- ARTICLES SECTION START -->
     <section id="article" class="mt-6 dark:bg-black dark:text-white">
       <div
         class="container mx-auto rounded-tl-lg rounded-tr-lg bg-red-200 px-4 py-10 dark:bg-black dark:text-white sm:bg-red-100 md:bg-red-200 lg:py-20"
@@ -797,19 +797,21 @@
           </h3>
         </div>
         <div class="alertArticles mb-2 hidden">___Alert___</div>
-        <label class="relative mx-auto mb-5 block lg:w-1/2" for="search">
-          <span
-            class="absolute inset-y-0 left-0 flex items-center pl-2 dark:text-dark"
-          >
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </span>
-          <input
-            type="text"
-            id="search"
-            class="block w-full rounded-md border border-slate-300 py-2 pl-9 pr-3 text-dark shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
-            placeholder="Search for anything..."
-          />
-        </label>
+        <form action="">
+          <label class="relative mx-auto mb-5 block lg:w-1/2" for="search">
+            <span
+              class="absolute inset-y-0 left-0 flex items-center pl-2 dark:text-dark"
+            >
+              <i class="fa fa-search" aria-hidden="true"></i>
+            </span>
+            <input
+              type="text"
+              id="search"
+              class="block w-full rounded-md border border-slate-300 py-2 pl-9 pr-3 text-dark shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
+              placeholder="Search for anything..."
+            />
+          </label>
+        </form>
         <div class="mb-10">
           <div
             class="mb-3 w-full text-lg font-bold text-dark dark:bg-black dark:text-white md:mb-5 md:font-bold lg:text-3xl"
@@ -856,7 +858,7 @@
         </div> -->
       </div>
     </section>
-    <!-- BLOG SECTION END -->
+    <!-- ARTICLES SECTION END -->
 
     <!-- MESSAGE SECTION START -->
     <section id="message" class="mt-6 dark:bg-black dark:text-white">
@@ -880,61 +882,63 @@
         </span>
         <div>
           <div class="mx-auto max-w-2xl">
-            <div class="w-full pb-3">
-              <label for="name">
-                <span
-                  class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
-                  >Name</span
+            <form action="">
+              <div class="w-full pb-3">
+                <label for="name">
+                  <span
+                    class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
+                    >Name</span
+                  >
+                  <input
+                    type="text"
+                    id="name"
+                    class="w-full rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
+                    placeholder="Field name is required"
+                  />
+                </label>
+              </div>
+              <div class="pb-3">
+                <label for="email">
+                  <span
+                    class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
+                    >Email</span
+                  >
+                  <input
+                    type="email"
+                    id="email"
+                    class="w-full rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
+                    placeholder="Field email is required"
+                  />
+                </label>
+              </div>
+              <div class="pb-3">
+                <label for="message">
+                  <span
+                    class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
+                    >Message</span
+                  >
+                  <textarea
+                    type="text"
+                    id="textMessage"
+                    class="w-full resize rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
+                    placeholder="Field Message is required"
+                  ></textarea>
+                </label>
+              </div>
+              <div class="pb-3">
+                <button
+                  class="md:text-md group flex w-full items-center justify-center rounded-md bg-primary py-[6px] text-sm font-medium text-red-200 shadow-lg duration-300 ease-in-out hover:bg-red-200 hover:text-primary hover:outline-none hover:ring-2 hover:ring-primary active:scale-105 active:bg-primary active:text-red-200 active:ring-light md:w-1/4 lg:text-lg"
+                  id="sendMessage"
                 >
-                <input
-                  type="text"
-                  id="name"
-                  class="w-full rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
-                  placeholder="Field name is required"
-                />
-              </label>
-            </div>
-            <div class="pb-3">
-              <label for="email">
-                <span
-                  class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
-                  >Email</span
-                >
-                <input
-                  type="email"
-                  id="email"
-                  class="w-full rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
-                  placeholder="Field email is required"
-                />
-              </label>
-            </div>
-            <div class="pb-3">
-              <label for="message">
-                <span
-                  class="text-[12px] font-semibold text-secondary dark:bg-black dark:text-white sm:mb-10 sm:text-[16px] lg:mb-1 lg:text-[18px] lg:font-bold"
-                  >Message</span
-                >
-                <textarea
-                  type="text"
-                  id="textMessage"
-                  class="w-full resize rounded-sm border-none px-[10px] py-[4px] text-sm font-thin outline-none ring-0 placeholder:text-[12px] invalid:border-red-700 invalid:text-red-600 focus:border-sky-500 focus:ring-2 focus:ring-sky-500 focus:invalid:border-red-700 focus:invalid:ring-red-700 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
-                  placeholder="Field Message is required"
-                ></textarea>
-              </label>
-            </div>
-            <div class="pb-3">
-              <button
-                class="md:text-md group flex w-full items-center justify-center rounded-md bg-primary py-[6px] text-sm font-medium text-red-200 shadow-lg duration-300 ease-in-out hover:bg-red-200 hover:text-primary hover:outline-none hover:ring-2 hover:ring-primary active:scale-105 active:bg-primary active:text-red-200 active:ring-light md:w-1/4 lg:text-lg"
-                id="sendMessage"
-              >
-                <span
-                  class="hidden animate-spin group-active:block group-active:duration-500"
-                >
-                  <i class="fa fa-spinner" aria-hidden="true"></i>
-                </span>
-                <span class="group-active:hidden"> Send message </span>
-              </button>
-            </div>
+                  <span
+                    class="hidden animate-spin group-active:block group-active:duration-500"
+                  >
+                    <i class="fa fa-spinner" aria-hidden="true"></i>
+                  </span>
+                  <span class="group-active:hidden"> Send message </span>
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </div>
@@ -1002,17 +1006,19 @@
                   >City not found</span
                 >
                 <label for="location" class="relative mb-2 flex items-center">
-                  <div
-                    class="absolute left-1 my-auto flex h-full items-center pr-1 text-dark"
-                  >
-                    <i class="fa fa-search" aria-hidden="true"></i>
-                  </div>
-                  <input
-                    type="text"
-                    id="location"
-                    class="cityName w-full rounded-sm border-none py-[4px] pl-[26px] text-sm font-thin text-dark outline-none ring-0 placeholder:text-[12px] focus:border-sky-500 focus:ring-2 focus:ring-sky-500 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
-                    placeholder="Please get your city"
-                  />
+                  <form action="">
+                    <div
+                      class="absolute left-1 my-auto flex h-full items-center pr-1 text-dark"
+                    >
+                      <i class="fa fa-search" aria-hidden="true"></i>
+                    </div>
+                    <input
+                      type="text"
+                      id="location"
+                      class="cityName w-full rounded-sm border-none py-[4px] pl-[26px] text-sm font-thin text-dark outline-none ring-0 placeholder:text-[12px] focus:border-sky-500 focus:ring-2 focus:ring-sky-500 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
+                      placeholder="Please get your city"
+                    />
+                  </form>
                 </label>
                 <table
                   class="w-full table-auto border-collapse rounded-md font-thin dark:border-2 dark:border-slate-300"
@@ -1078,7 +1084,7 @@
                       <td
                         class="font-2-bold pl-2 dark:border-2 dark:border-slate-200"
                       >
-                        Humadity
+                        Humidity
                       </td>
                       <td class="pl-2 dark:border-2 dark:border-slate-200">
                         -
