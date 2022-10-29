@@ -797,21 +797,19 @@
           </h3>
         </div>
         <div class="alertArticles mb-2 hidden">___Alert___</div>
-        <form action="">
-          <label class="relative mx-auto mb-5 block lg:w-1/2" for="search">
-            <span
-              class="absolute inset-y-0 left-0 flex items-center pl-2 dark:text-dark"
-            >
-              <i class="fa fa-search" aria-hidden="true"></i>
-            </span>
-            <input
-              type="text"
-              id="search"
-              class="block w-full rounded-md border border-slate-300 py-2 pl-9 pr-3 text-dark shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
-              placeholder="Search for anything..."
-            />
-          </label>
-        </form>
+        <label class="relative mx-auto mb-5 block lg:w-1/2" for="search">
+          <span
+            class="absolute inset-y-0 left-0 flex items-center pl-2 dark:text-dark"
+          >
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>
+          <input
+            type="text"
+            id="search"
+            class="block w-full rounded-md border border-slate-300 py-2 pl-9 pr-3 text-dark shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
+            placeholder="Search for anything..."
+          />
+        </label>
         <div class="mb-10">
           <div
             class="mb-3 w-full text-lg font-bold text-dark dark:bg-black dark:text-white md:mb-5 md:font-bold lg:text-3xl"
@@ -882,7 +880,7 @@
         </span>
         <div>
           <div class="mx-auto max-w-2xl">
-            <form action="">
+            <form>
               <div class="w-full pb-3">
                 <label for="name">
                   <span
@@ -976,7 +974,7 @@
             ></iframe>
           </div>
           <!-- Weather App -->
-          <div class="w-fulL h-full rounded-md">
+          <div class="w-fulL h-full rounded-md" id="cuaca">
             <div class="container mx-auto rounded-xl md:w-1/2 md:py-0">
               <div
                 class="mt-20 mb-20 text-center text-lg font-bold md:mt-0 lg:mb-16"
@@ -1006,20 +1004,19 @@
                   >City not found</span
                 >
                 <label for="location" class="relative mb-2 flex items-center">
-                  <form action="">
-                    <div
-                      class="absolute left-1 my-auto flex h-full items-center pr-1 text-dark"
-                    >
-                      <i class="fa fa-search" aria-hidden="true"></i>
-                    </div>
-                    <input
-                      type="text"
-                      id="location"
-                      class="cityName w-full rounded-sm border-none py-[4px] pl-[26px] text-sm font-thin text-dark outline-none ring-0 placeholder:text-[12px] focus:border-sky-500 focus:ring-2 focus:ring-sky-500 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
-                      placeholder="Please get your city"
-                    />
-                  </form>
+                  <div
+                    class="absolute left-1 my-auto flex h-full items-center pr-1 text-dark"
+                  >
+                    <i class="fa fa-search" aria-hidden="true"></i>
+                  </div>
+                  <input
+                    type="text"
+                    id="location"
+                    class="cityName w-full rounded-sm border-none py-[4px] pl-[26px] text-sm font-thin text-dark outline-none ring-0 placeholder:text-[12px] focus:border-sky-500 focus:ring-2 focus:ring-sky-500 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
+                    placeholder="Please get your city"
+                  />
                 </label>
+
                 <table
                   class="w-full table-auto border-collapse rounded-md font-thin dark:border-2 dark:border-slate-300"
                 >

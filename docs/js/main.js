@@ -125,6 +125,7 @@ btnSendMessage.addEventListener("click", function () {
 });
 
 function setMessage() {
+  window.location.href = "#message";
   if (nameCostumer.value === "") {
     alertMessage.classList.add("alertEroor");
     return (alertMessage.innerHTML = "The field name is required");
@@ -198,6 +199,7 @@ const alertArticles = document.querySelector(".alertArticles");
 // SEARCH NEWS
 searchArticles.addEventListener("keyup", function (e) {
   if (e.key == "Enter" && searchArticles.value != "") {
+    console.log(searchArticles.value);
     alertArticles.classList.add("alertSuccess");
     alertArticles.innerHTML = `Getting Articles...`;
     const data = searchArticles.value;
@@ -217,7 +219,7 @@ function getSearchArticles(data) {
   });
   data.then((d) => {
     alertArticles.classList.replace("alertSuccess", "alertEroor");
-    alertArticles.classList.remove("alertSuccess");
+    alertWeather.classList.remove("alertSuccess");
 
     let UpdateUINewsIndonesia = "";
     values = d.results;
@@ -231,9 +233,9 @@ function getSearchArticles(data) {
         category: value.category,
         published: value.pubDate,
       };
+      window.location.href = "#article";
       UpdateUINewsIndonesia += UINewsIndonesia(results);
     });
-    window.location.href = "#article";
     document.querySelector(".blogs").innerHTML = UpdateUINewsIndonesia;
   });
 }
@@ -350,6 +352,8 @@ locationUser.addEventListener("click", function () {
 function onSuccess(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
+  alertWeather.classList.add("alertSuccess");
+  alertWeather.innerHTML = `Getting weather details...`;
   const data = fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=7b7d073552be870b3e2ae445a0a603ea&units=metric`
   );
@@ -360,7 +364,9 @@ function onSuccess(position) {
     }
     return responses.json();
   });
-  dataJson.then((res) => getWeather(res));
+  dataJson.then((res) => {
+    getWeather(res);
+  });
 }
 
 function onError(error) {
@@ -393,6 +399,7 @@ function getWeather(data) {
       alertWeather.classList.remove("alertEroor");
     }, 5000);
   } else {
+    window.location.href = "#cuaca";
     alertWeather.classList.remove("alertSuccess");
     const { feels_like, humidity, temp } = data.main;
     const city = data.name;
@@ -478,7 +485,7 @@ function UIWeather(data) {
     </tr>
     <tr>
       <td class="dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
-        Humidity
+        Humadity
       </td>
       <td class="dark:border-[1px] dark:border-slate-300 pl-2">
         <span id="humadity">${data.humidity}</span> %
