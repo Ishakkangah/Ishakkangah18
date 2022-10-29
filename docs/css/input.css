@@ -39,9 +39,9 @@ body {
 }
 
 .alertSuccess {
-  @apply mx-auto block max-w-2xl rounded-md bg-green-500 py-[4px] text-center text-slate-200 shadow-sm md:py-[5px];
+  @apply block  rounded-md bg-green-500 py-[4px] text-center text-slate-200 shadow-sm md:py-[5px];
 }
 
 .alertEroor {
-  @apply mx-auto block max-w-2xl rounded-md bg-red-500 py-[4px] text-center text-slate-200 shadow-sm md:py-[5px];
+  @apply block  rounded-md bg-red-500 py-[4px] text-center text-slate-200 shadow-sm md:py-[5px];
 }

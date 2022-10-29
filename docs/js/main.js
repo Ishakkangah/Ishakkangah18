@@ -192,25 +192,23 @@ btnMode.forEach((mode) => {
 // 8. END DARK MODE
 
 // GET API ARTICLE
-const data_selengkapnya = document.getElementById("data_selengkapnya");
+// const data_selengkapnya = document.getElementById("data_selengkapnya");
 const searchArticles = document.getElementById("search");
+const btnSearh = document.querySelector("#btnSearching");
 const alertArticles = document.querySelector(".alertArticles");
-
+console.log(btnSearh);
 // SEARCH NEWS
-searchArticles.addEventListener("keyup", function (e) {
+btnSearh.addEventListener("click", function (e) {
   if (searchArticles.value != "") {
     alertArticles.classList.add("alertSuccess");
     alertArticles.innerHTML = `Getting Articles...`;
     const data = searchArticles.value;
     getSearchArticles(data);
-  } else {
-    if (searchArticles.value == "") {
-      alertArticles.classList.remove("alertSuccess");
-    }
   }
 });
 
 function getSearchArticles(data) {
+  window.location.href = "#article";
   const api = `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&q=${data}`;
   data = fetch(api).then((res) => {
     if (res.status == 200) {
@@ -236,7 +234,6 @@ function getSearchArticles(data) {
         category: value.category,
         published: value.pubDate,
       };
-      window.location.href = "#article";
       UpdateUINewsIndonesia += UINewsIndonesia(results);
     });
     document.querySelector(".blogs").innerHTML = UpdateUINewsIndonesia;

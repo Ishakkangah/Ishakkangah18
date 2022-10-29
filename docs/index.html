@@ -796,23 +796,46 @@
             POPULAR NEWS
           </h3>
         </div>
-        <div class="alertArticles mb-2 hidden">___Alert___</div>
-        <label class="relative mx-auto mb-5 block lg:w-1/2" for="search">
-          <span
-            class="absolute inset-y-0 left-0 flex items-center pl-2 dark:text-dark"
+        <div class="alertArticles mb-2 hidden lg:w-[75%] lg:items-center">
+          ___Alert___
+        </div>
+
+        <form>
+          <div
+            class="mb-10 md:mb-20 lg:flex lg:w-[75%] lg:items-center lg:justify-between"
           >
-            <i class="fa fa-search" aria-hidden="true"></i>
-          </span>
-          <input
-            type="text"
-            id="search"
-            class="block w-full rounded-md border border-slate-300 py-2 pl-9 pr-3 text-dark shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
-            placeholder="Search for anything..."
-          />
-        </label>
+            <label
+              for="search"
+              class="relative mb-2 flex items-center lg:mb-0 lg:w-full"
+            >
+              <div
+                class="absolute left-1 my-auto flex h-full items-center pr-1 text-dark"
+              >
+                <i class="fa fa-search" aria-hidden="true"></i>
+              </div>
+              <input
+                type="text"
+                id="search"
+                class="w-full rounded-sm border-none py-[6px] pl-[26px] text-sm font-thin text-dark outline-none ring-0 placeholder:text-[12px] focus:border-sky-500 focus:ring-2 focus:ring-sky-500 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
+                placeholder="Searching for annithyng "
+              />
+            </label>
+            <button
+              class="md:text-md group z-10 flex w-1/4 items-center justify-center overflow-hidden rounded-md bg-primary py-[6px] text-sm font-medium text-slate-200 shadow-lg duration-300 ease-in-out hover:bg-opacity-90 hover:outline-none hover:ring-2 hover:ring-primary active:scale-105 active:bg-primary active:text-red-200 active:ring-light md:w-1/4 lg:text-lg"
+              id="btnSearching"
+            >
+              <span
+                class="hidden animate-spin group-active:block group-active:duration-500"
+              >
+                <i class="fa fa-spinner" aria-hidden="true"></i>
+              </span>
+              <span class="group-active:hidden">Search</span>
+            </button>
+          </div>
+        </form>
         <div class="mb-10">
           <div
-            class="mb-3 w-full text-lg font-bold text-dark dark:bg-black dark:text-white md:mb-5 md:font-bold lg:text-3xl"
+            class="mb-3 w-full text-xl font-extrabold text-dark dark:bg-black dark:text-white md:mb-5 md:font-bold lg:text-3xl"
           >
             Indonesia Updates News
           </div>
@@ -873,7 +896,7 @@
         </div>
 
         <span
-          class="hidden text-center text-[12px] font-semibold sm:text-[16px] lg:text-[18px] lg:font-bold"
+          class="mx-auto hidden max-w-2xl text-center text-[12px] font-semibold sm:text-[16px] lg:text-[18px] lg:font-bold"
           id="alert"
         >
           ____________________________________
@@ -925,7 +948,7 @@
               </div>
               <div class="pb-3">
                 <button
-                  class="md:text-md group flex w-full items-center justify-center rounded-md bg-primary py-[6px] text-sm font-medium text-red-200 shadow-lg duration-300 ease-in-out hover:bg-red-200 hover:text-primary hover:outline-none hover:ring-2 hover:ring-primary active:scale-105 active:bg-primary active:text-red-200 active:ring-light md:w-1/4 lg:text-lg"
+                  class="md:text-md group flex w-full items-center justify-center rounded-md bg-primary py-[6px] text-sm font-medium text-slate-200 shadow-lg duration-300 ease-in-out hover:bg-opacity-90 hover:outline-none hover:ring-2 hover:ring-primary active:scale-105 active:bg-primary active:text-red-200 active:ring-light md:w-1/4 lg:text-lg"
                   id="sendMessage"
                 >
                   <span
@@ -984,6 +1007,11 @@
                 <h2 class="mb-1 uppercase text-primary lg:text-2xl">
                   Wheather APP
                 </h2>
+                <h3
+                  class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
+                >
+                  Show weather forecast
+                </h3>
               </div>
 
               <!-- Info -->
