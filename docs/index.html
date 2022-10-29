@@ -356,13 +356,13 @@
           >
             <button
               data-carousel-button="prev"
-              class="ml-2 animate-pulse border-[1px] border-red-50 border-opacity-10 text-lg font-extrabold text-slate-400 active:scale-105 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
+              class="ml-2 animate-pulse border-[1px] border-red-50 border-opacity-30 bg-slate-500 text-lg font-extrabold text-slate-400 active:scale-110 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
             >
               &lArr;
             </button>
             <button
               data-carousel-button="next"
-              class="mr-2 animate-pulse border-[1px] border-red-50 border-opacity-10 text-lg font-extrabold text-slate-400 active:scale-105 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
+              class="mr-2 animate-pulse border-[1px] border-red-50 border-opacity-30 bg-slate-500 text-lg font-extrabold text-slate-400 active:scale-110 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
             >
               &rArr;
             </button>
@@ -488,13 +488,13 @@
           >
             <button
               data-carousel-button="prev"
-              class="ml-2 animate-pulse border-[1px] border-red-50 border-opacity-10 text-lg font-extrabold text-slate-400 active:scale-105 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
+              class="ml-2 animate-pulse border-[1px] border-red-50 border-opacity-30 bg-slate-500 text-lg font-extrabold text-slate-400 active:scale-110 active:border-opacity-20 active:text-slate-200 active:shadow-lg md:text-5xl"
             >
               &lArr;
             </button>
             <button
               data-carousel-button="next"
-              class="mr-2 animate-pulse border-[1px] border-red-50 border-opacity-10 text-lg font-extrabold text-slate-400 active:scale-105 active:border-opacity-20 active:text-slate-500 active:shadow-lg md:text-5xl"
+              class="mr-2 animate-pulse border-[1px] border-red-50 border-opacity-30 bg-slate-500 text-lg font-extrabold text-slate-400 active:scale-110 active:border-opacity-30 active:text-slate-200 active:shadow-lg md:text-5xl"
             >
               &rArr;
             </button>
@@ -797,19 +797,17 @@
           </h3>
         </div>
         <div class="alertArticles mb-2 hidden">___Alert___</div>
-        <label class="relative mx-auto mb-5 block lg:w-1/2">
-          <span class="sr-only">Search</span>
+        <label class="relative mx-auto mb-5 block lg:w-1/2" for="search">
           <span
             class="absolute inset-y-0 left-0 flex items-center pl-2 dark:text-dark"
           >
             <i class="fa fa-search" aria-hidden="true"></i>
           </span>
           <input
-            class="block w-full rounded-md border border-slate-300 bg-white py-2 pl-9 pr-3 shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
-            placeholder="Search for anything..."
             type="text"
             id="search"
-            name="search"
+            class="block w-full rounded-md border border-slate-300 py-2 pl-9 pr-3 text-dark shadow-sm placeholder:italic placeholder:text-slate-400 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500 sm:text-sm"
+            placeholder="Search for anything..."
           />
         </label>
         <div class="mb-10">
@@ -982,29 +980,25 @@
                 <h2 class="mb-1 uppercase text-primary lg:text-2xl">
                   Wheather APP
                 </h2>
-                <h3
-                  class="mb-1 text-lg font-bold text-dark dark:bg-black dark:text-white lg:text-xl"
-                >
-                  Ogan Komering Ilir - Indonesia
-                </h3>
               </div>
 
               <!-- Info -->
               <div class="flex justify-end">
                 <button
-                  class="mb-2 flex w-1/2 cursor-pointer items-center justify-center gap-1 rounded-sm bg-sky-500 py-0 text-[14px] font-medium shadow-sm duration-200 hover:animate-pulse hover:bg-opacity-50 active:scale-110 md:w-1/2 md:py-1"
-                  id="location"
+                  class="mb-1 flex w-1/2 cursor-pointer items-center justify-center gap-1 rounded-md bg-sky-500 py-1 text-[14px] font-medium shadow-sm duration-200 hover:animate-pulse hover:bg-opacity-50 active:scale-110 md:w-1/2 md:py-1"
+                  id="locationUser"
                 >
                   <span
-                    class="mr-1 text-lg font-bold text-primary hover:text-slate-200"
+                    class="text-w mr-1 text-lg font-bold text-primary hover:text-slate-200"
                     ><i class="fa fa-map-marker" aria-hidden="true"></i
                   ></span>
-                  <span>My Location</span>
+                  <span class="text-slate-200">My location</span>
                 </button>
               </div>
-              <div class="my-2 w-full">
+              <div class="my-1 w-full">
                 <span
-                  class="mb-2 block rounded-sm bg-red-500 px-4 py-1 text-center"
+                  class="mb-2 hidden rounded-sm bg-red-500 px-4 py-1 text-center"
+                  id="alertWeather"
                   >City not found</span
                 >
                 <label for="location" class="relative mb-2 flex items-center">
@@ -1016,49 +1010,89 @@
                   <input
                     type="text"
                     id="location"
-                    class="w-full rounded-sm border-none py-[4px] pl-[26px] text-sm font-thin text-dark outline-none ring-0 placeholder:text-[12px] focus:border-sky-500 focus:ring-2 focus:ring-sky-500 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
+                    class="cityName w-full rounded-sm border-none py-[4px] pl-[26px] text-sm font-thin text-dark outline-none ring-0 placeholder:text-[12px] focus:border-sky-500 focus:ring-2 focus:ring-sky-500 md:py-[5px] md:placeholder:text-[14px] lg:py-[10px]"
                     placeholder="Please get your city"
                   />
                 </label>
                 <table
-                  class="w-full table-auto border-collapse border border-slate-400 font-thin"
+                  class="w-full table-auto border-collapse rounded-md font-thin dark:border-2 dark:border-slate-300"
                 >
-                  <tbody>
+                  <tbody id="weather">
                     <tr>
-                      <td class="border border-slate-300 font-bold">State</td>
-                      <td class="border border-slate-300">Amerika Serikat</td>
+                      <td
+                        class="font-2-bold mr-1 w-1/2 pl-2 dark:border-2 dark:border-slate-200"
+                      >
+                        State
+                      </td>
+                      <td
+                        class="w-1/2 pl-2 dark:border-2 dark:border-slate-200"
+                        id="state"
+                      >
+                        -
+                      </td>
                     </tr>
                     <tr>
-                      <td class="border border-slate-300 font-bold">City</td>
-                      <td class="border border-slate-300">Washington DC</td>
+                      <td
+                        class="font-2-bold pl-2 dark:border-2 dark:border-slate-200"
+                      >
+                        City
+                      </td>
+                      <td
+                        class="pl-2 dark:border-2 dark:border-slate-200"
+                        id="city"
+                      >
+                        -
+                      </td>
                     </tr>
                     <tr>
-                      <td class="border border-slate-300 font-bold">
+                      <td
+                        class="font-2-bold pl-2 dark:border-2 dark:border-slate-200"
+                      >
                         Description
                       </td>
-                      <td class="border border-slate-300">Cload</td>
+                      <td class="pl-2 dark:border-2 dark:border-slate-200">
+                        -
+                      </td>
                     </tr>
                     <tr>
-                      <td class="border border-slate-300 font-bold">
+                      <td
+                        class="font-2-bold pl-2 dark:border-2 dark:border-slate-200"
+                      >
+                        Main
+                      </td>
+                      <td class="pl-2 dark:border-2 dark:border-slate-200">
+                        -
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        class="font-2-bold pl-2 dark:border-2 dark:border-slate-200"
+                      >
                         Temperatur
                       </td>
-                      <td class="border border-slate-300">13 &#176; C</td>
+                      <td class="pl-2 dark:border-2 dark:border-slate-200">
+                        -
+                      </td>
                     </tr>
                     <tr>
-                      <td class="border border-slate-300 font-bold">
+                      <td
+                        class="font-2-bold pl-2 dark:border-2 dark:border-slate-200"
+                      >
                         Humadity
                       </td>
-                      <td class="border border-slate-300">22 Deg</td>
+                      <td class="pl-2 dark:border-2 dark:border-slate-200">
+                        -
+                      </td>
                     </tr>
                     <tr>
-                      <td class="border border-slate-300 font-bold">
+                      <td
+                        class="font-2-bold pl-2 dark:border-2 dark:border-slate-200"
+                      >
                         Feels Like
                       </td>
-                      <td class="border border-slate-300">17 &#176; C</td>
-                    </tr>
-                    <tr>
-                      <td class="border border-slate-300 font-bold">Main</td>
-                      <td class="border border-slate-300">-</td>
+                      <td class="pl-2 dark:border-2 dark:border-slate-200">
+                        -
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -1073,7 +1107,7 @@
     <!-- FOOTER SECTION START -->
     <section id="footer" class="pt-6 dark:bg-black dark:text-white">
       <div
-        class="bg-gray-800 py-20 text-sm font-thin text-slate-200 dark:bg-black dark:text-white"
+        class="bg-gray-800 py-10 text-sm font-thin text-slate-200 dark:bg-black dark:text-white"
       >
         <div class="container mx-auto px-4">
           <div
@@ -1354,6 +1388,18 @@
               >. All rights reserved. Yes, all of them
             </p>
             <p>I love u 😘</p>
+          </div>
+          <hr class="my-7 border-gray-700" />
+          <div class="flex items-center justify-between">
+            <div class="flex flex-row justify-center text-[12px] font-bold">
+              <span class="mr-1">©</span>
+              <span>2022 Bismillah</span>
+            </div>
+            <div class="flex flex-col justify-center text-[12px] font-bold">
+              <span>Term of us</span>
+              <span>Private Policy</span>
+              <span>Cookie</span>
+            </div>
           </div>
         </div>
 

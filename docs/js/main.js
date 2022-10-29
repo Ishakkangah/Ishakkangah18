@@ -195,11 +195,15 @@ const data_selengkapnya = document.getElementById("data_selengkapnya");
 const searchArticles = document.getElementById("search");
 const alertArticles = document.querySelector(".alertArticles");
 
+// SEARCH NEWS
 searchArticles.addEventListener("keyup", function (e) {
-  // jika element key adalah enter dan isi dari input searrch ada
-  if (e.key === "Enter" && searchArticles.value != "") {
+  if (searchArticles.value != "") {
     const data = searchArticles.value;
     getSearchArticles(data);
+    if (searchArticles.value === "") {
+      alertArticles.classList.add("hidden");
+      alertArticles.classList.remove("alertErorr");
+    }
   }
 });
 
@@ -209,6 +213,7 @@ function getSearchArticles(data) {
     if (res.status == 200) {
       return res.json();
     } else {
+      alertArticles.classList.add("alertEroor");
       alertArticles.innerHTML = res.statusText;
     }
   });
@@ -218,15 +223,16 @@ function getSearchArticles(data) {
     values.forEach((value) => {
       const results = {
         title: value.title,
-        description: value.description.substring(0, 100),
+        // jika ada string tampilkan string jika tidak ada tampilkan string kosong
+        description: value.description.substring(0, 100) || "",
         url: value.link,
         thumbnail: value.image_url,
         category: value.category,
         published: value.pubDate,
       };
-      console.log("result", results);
       UpdateUINewsIndonesia += UINewsIndonesia(results);
     });
+    window.location.href = "#article";
     document.querySelector(".blogs").innerHTML = UpdateUINewsIndonesia;
   });
 }
@@ -252,7 +258,13 @@ function fetchData() {
       );
     })
     .then((data) => {
-      getDataBlogs(data);
+      try {
+        getDataBlogs(data);
+      } catch (error) {
+        console.log(error);
+        alertArticles.classList.add("alertEroor");
+        alertArticles.innerHTML = error.message;
+      }
     });
 }
 
@@ -267,10 +279,10 @@ function setNewsIndonesia(data) {
   let UpdateUINewsIndonesia = "";
   dataNews = data.results;
   dataNews.forEach((data) => {
-    const description = data.description.substring(0, 100);
     const results = {
       title: data.title,
-      description: description,
+      // jika ada string tampilkan string jika tidak ada tampilkan string kosong
+      description: data.description.substring(0, 100) || "",
       url: data.link,
       thumbnail: data.image_url,
       category: data.category,
@@ -316,5 +328,168 @@ function UINewsIndonesia(results) {
       </a>
   </div>
   
+  `;
+}
+
+// WEATHER API
+// https://openweathermap.org/current#data
+const alertWeather = document.getElementById("alertWeather");
+const inputlocation = document.querySelector("#location.cityName");
+const locationUser = document.getElementById("locationUser");
+
+locationUser.addEventListener("click", function () {
+  if (navigator.geolocation) {
+    navigator.geolocation.watchPosition(onSuccess, onError);
+  } else {
+    alertWeather.classList.add(`alertEroor`);
+    alertWeather.innerHTML = `Geolocation is not supported by this browser!`;
+  }
+});
+
+function onSuccess(position) {
+  const latitude = position.coords.latitude;
+  const longitude = position.coords.longitude;
+  const data = fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=7b7d073552be870b3e2ae445a0a603ea&units=metric`
+  );
+  const dataJson = data.then((responses) => {
+    if (responses.status === 401) {
+      alertWeather.classList.add(`alertEroor`);
+      alertWeather.innerHTML = `${responses.statusText}`;
+    }
+    return responses.json();
+  });
+  dataJson.then((res) => getWeather(res));
+}
+
+function onError(error) {
+  alertWeather.classList.add("alertEroor");
+  alertWeather.innerHTML = error.message;
+}
+
+inputlocation.addEventListener("keyup", function (e) {
+  if (e.key == "Enter" && inputlocation.value != "") {
+    alertWeather.classList.add("alertSuccess");
+    alertWeather.innerHTML = `Getting weather details...`;
+    apiWeather(inputlocation.value);
+  }
+});
+
+function apiWeather(city) {
+  const data = fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=7b7d073552be870b3e2ae445a0a603ea&units=metric`
+  );
+  const dataJson = data.then((res) => res.json());
+  dataJson.then((res) => getWeather(res));
+}
+
+function getWeather(data) {
+  if (data.cod == "404") {
+    alertWeather.classList.replace("alertSuccess", "alertEroor");
+    alertWeather.innerHTML = `${inputlocation.value} not found!`;
+
+    setInterval(() => {
+      alertWeather.classList.remove("alertEroor");
+    }, 5000);
+  } else {
+    alertWeather.classList.remove("alertSuccess");
+    const { feels_like, humidity, temp } = data.main;
+    const city = data.name;
+    const state = data.sys.country;
+    const { id, description, main } = data.weather[0];
+
+    if (id === 800) {
+      weather_Icons = "./img/weather/clear.png";
+    } else if (id >= 200 && id <= 232) {
+      weather_Icons = "./img/weather/strom.png";
+    } else if (id >= 300 && id <= 321) {
+      weather_Icons = "./img/weather/rain.png";
+    } else if (id >= 500 && id <= 531) {
+      weather_Icons = "./img/weather/rain.png";
+    } else if (id >= 600 && id <= 622) {
+      weather_Icons = "./img/weather/snow.png";
+    } else if (id >= 701 && id <= 781) {
+      weather_Icons = "./img/weather/haze.png";
+    } else if (id >= 801 && id <= 804) {
+      weather_Icons = "./img/weather/cloud.png";
+    }
+
+    const results = {
+      state: state,
+      city: city,
+      description: description,
+      main: main,
+      feels_like: Math.floor(feels_like),
+      humidity: Math.floor(humidity),
+      temp: Math.floor(temp),
+      weather_Icons: weather_Icons,
+    };
+    document.getElementById("weather").innerHTML = UIWeather(results);
+  }
+}
+
+// Update UI Weather
+function UIWeather(data) {
+  return `
+ 
+    <tr>
+      <td class="mr-1 dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
+        State
+      </td>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2" id="state">${data.state}</td>
+    </tr>
+    <tr>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
+        City
+      </td>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2" id="city">${data.city}</td>
+    </tr>
+    <tr>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
+        Description
+      </td>
+      <td
+        class="flex items-center dark:border-[1px] dark:border-slate-300 pl-2"
+      >
+        <img
+          src="${data.weather_Icons}"
+          alt="${data.city}"
+          class="mr-1 w-[20px]"
+        />
+        <span id="description">${data.description}</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
+        Main
+      </td>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2">
+        <span id="main">${data.main}</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
+        Temperatur
+      </td>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2">
+        <span id="temp">${data.temp} &#176 C</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
+        Humadity
+      </td>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2">
+        <span id="humadity">${data.humidity}</span> %
+      </td>
+    </tr>
+    <tr>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2 font-bold">
+        Feels Like
+      </td>
+      <td class="dark:border-[1px] dark:border-slate-300 pl-2">
+        <span id="feels_like">${data.feels_like}</span> &#176; C
+      </td>
+    </tr>
   `;
 }
