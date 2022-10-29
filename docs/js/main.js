@@ -198,12 +198,15 @@ const alertArticles = document.querySelector(".alertArticles");
 
 // SEARCH NEWS
 searchArticles.addEventListener("keyup", function (e) {
-  if (e.key == "Enter" && searchArticles.value != "") {
-    console.log(searchArticles.value);
+  if (searchArticles.value != "") {
     alertArticles.classList.add("alertSuccess");
     alertArticles.innerHTML = `Getting Articles...`;
     const data = searchArticles.value;
     getSearchArticles(data);
+  } else {
+    if (searchArticles.value == "") {
+      alertArticles.classList.remove("alertSuccess");
+    }
   }
 });
 
@@ -339,10 +342,11 @@ function UINewsIndonesia(results) {
 const alertWeather = document.getElementById("alertWeather");
 const inputlocation = document.querySelector("#location.cityName");
 const locationUser = document.getElementById("locationUser");
+const clearLocation = document.getElementById("clearLocation");
 
 locationUser.addEventListener("click", function () {
   if (navigator.geolocation) {
-    navigator.geolocation.watchPosition(onSuccess, onError);
+    navigator.geolocation.getCurrentPosition(onSuccess, onError);
   } else {
     alertWeather.classList.add(`alertEroor`);
     alertWeather.innerHTML = `Geolocation is not supported by this browser!`;
@@ -352,8 +356,6 @@ locationUser.addEventListener("click", function () {
 function onSuccess(position) {
   const latitude = position.coords.latitude;
   const longitude = position.coords.longitude;
-  alertWeather.classList.add("alertSuccess");
-  alertWeather.innerHTML = `Getting weather details...`;
   const data = fetch(
     `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=7b7d073552be870b3e2ae445a0a603ea&units=metric`
   );
@@ -390,6 +392,24 @@ function apiWeather(city) {
   dataJson.then((res) => getWeather(res));
 }
 
+document.body.addEventListener("click", function (e) {
+  if (e.target.id == `clearLocation`) {
+    clearLocation.classList.replace("scale-100", "scale-0");
+    const results = {
+      state: "-",
+      city: "-",
+      description: "-",
+      main: "-",
+      feels_like: "-",
+      humidity: "-",
+      temp: "-",
+      weather_Icons: "",
+    };
+    inputlocation.value = "";
+    document.getElementById("weather").innerHTML = UIWeather(results);
+  }
+});
+
 function getWeather(data) {
   if (data.cod == "404") {
     alertWeather.classList.replace("alertSuccess", "alertEroor");
@@ -400,6 +420,10 @@ function getWeather(data) {
     }, 5000);
   } else {
     window.location.href = "#cuaca";
+    if (clearLocation) {
+      clearLocation.classList.replace("scale-0", "scale-100");
+      clearLocation.dataset.disabled = "true";
+    }
     alertWeather.classList.remove("alertSuccess");
     const { feels_like, humidity, temp } = data.main;
     const city = data.name;
@@ -427,10 +451,14 @@ function getWeather(data) {
       city: city,
       description: description,
       main: main,
-      feels_like: Math.floor(feels_like),
-      humidity: Math.floor(humidity),
-      temp: Math.floor(temp),
-      weather_Icons: weather_Icons,
+      feels_like: `${Math.floor(feels_like)} &#176 C`,
+      humidity: `${Math.floor(humidity)}%`,
+      temp: `${Math.floor(temp)} &#176 C`,
+      weather_Icons: `<img
+                          src="${weather_Icons}"
+                          alt="${city}"
+                          class="mr-1 w-[20px]" id="img"
+                        />`,
     };
     document.getElementById("weather").innerHTML = UIWeather(results);
   }
@@ -459,11 +487,7 @@ function UIWeather(data) {
       <td
         class="flex items-center dark:border-[1px] dark:border-slate-300 pl-2"
       >
-        <img
-          src="${data.weather_Icons}"
-          alt="${data.city}"
-          class="mr-1 w-[20px]"
-        />
+        ${data.weather_Icons}
         <span id="description">${data.description}</span>
       </td>
     </tr>
@@ -480,7 +504,7 @@ function UIWeather(data) {
         Temperatur
       </td>
       <td class="dark:border-[1px] dark:border-slate-300 pl-2">
-        <span id="temp">${data.temp} &#176 C</span>
+        <span id="temp">${data.temp} </span>
       </td>
     </tr>
     <tr>
@@ -488,7 +512,7 @@ function UIWeather(data) {
         Humadity
       </td>
       <td class="dark:border-[1px] dark:border-slate-300 pl-2">
-        <span id="humadity">${data.humidity}</span> %
+        <span id="humadity">${data.humidity}</span> 
       </td>
     </tr>
     <tr>
@@ -496,7 +520,7 @@ function UIWeather(data) {
         Feels Like
       </td>
       <td class="dark:border-[1px] dark:border-slate-300 pl-2">
-        <span id="feels_like">${data.feels_like}</span> &#176; C
+        <span id="feels_like">${data.feels_like}</span>
       </td>
     </tr>
   `;

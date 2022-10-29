@@ -975,7 +975,9 @@
           </div>
           <!-- Weather App -->
           <div class="w-fulL h-full rounded-md" id="cuaca">
-            <div class="container mx-auto rounded-xl md:w-1/2 md:py-0">
+            <div
+              class="lg:w-1/8 container mx-auto rounded-xl md:w-full lg:w-9/12"
+            >
               <div
                 class="mt-20 mb-20 text-center text-lg font-bold md:mt-0 lg:mb-16"
               >
@@ -985,17 +987,25 @@
               </div>
 
               <!-- Info -->
-              <div class="flex justify-end">
-                <button
-                  class="mb-1 flex w-1/2 cursor-pointer items-center justify-center gap-1 rounded-md bg-sky-500 py-1 text-[14px] font-medium shadow-sm duration-200 hover:animate-pulse hover:bg-opacity-50 active:scale-110 md:w-1/2 md:py-1"
+
+              <div class="mb-2 flex gap-2">
+                <div
+                  class="flex w-full cursor-pointer items-center justify-center rounded-md bg-sky-500 py-1 text-sm font-medium text-white active:scale-105 active:animate-pulse active:bg-opacity-60"
                   id="locationUser"
                 >
                   <span
-                    class="text-w mr-1 text-lg font-bold text-primary hover:text-slate-200"
+                    class="text-w mr-2 text-lg font-bold text-primary hover:text-slate-200"
                     ><i class="fa fa-map-marker" aria-hidden="true"></i
                   ></span>
                   <span class="text-slate-200">My location</span>
-                </button>
+                </div>
+                <div
+                  class="scale-1 trasition-all flex w-full scale-0 cursor-pointer items-center justify-center rounded-md bg-green-500 py-1 text-sm font-medium text-white duration-200 ease-linear active:scale-105 active:animate-pulse active:bg-opacity-60"
+                  id="clearLocation"
+                  disabled
+                >
+                  <span class="">Clear</span>
+                </div>
               </div>
               <div class="my-1 w-full">
                 <span
