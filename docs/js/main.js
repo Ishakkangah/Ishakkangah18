@@ -199,8 +199,25 @@ const alertArticles = document.querySelector(".alertArticles");
 const searchArticles = document.getElementById("search");
 const btnSearh = document.querySelector("#btnSearching");
 const title_Articles = document.querySelector(".title_Articles");
-console.log(title_Articles);
 const categoryArticles = document.querySelectorAll("ul.sub_menu li a");
+const page_articles = document.querySelectorAll(".page_articles i");
+
+let page = 0;
+
+// PAGE ARTICLES
+page_articles.forEach((btnPageArticles) => {
+  btnPageArticles.addEventListener("click", function () {
+    setPage(btnPageArticles);
+  });
+});
+
+// SET PAGE ARTICLES
+function setPage(btnPageArticles) {
+  const offset = btnPageArticles.dataset.pageArticles === "prev" ? -1 : 1;
+  page += offset;
+  window.location.href = "#article";
+  fetchData();
+}
 
 // CATEGORY ARTICLES
 categoryArticles.forEach((category) => {
@@ -214,7 +231,7 @@ function getDataCategory(category) {
   const categoryName = category.innerHTML;
   title_Articles.innerHTML = categoryName;
   const api = fetch(
-    `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&category=${categoryName}`
+    `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&category=${categoryName}&page=${page}`
   );
   api
     .then((responses) => {
@@ -242,7 +259,7 @@ btnSearh.addEventListener("click", function () {
     alertArticles.innerHTML = `Getting Articles...`;
     const valueSearch = searchArticles.value;
     const api = fetch(
-      `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&q=${valueSearch}`
+      `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&q=${valueSearch}&page=${page}`
     );
     api
       .then((responses) => {
@@ -293,7 +310,7 @@ function setDataArticles(values) {
 function fetchData() {
   Promise.all([
     fetch(
-      `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&country=id,ca`
+      `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&country=id,ca&page=${page}`
     ),
   ])
     .then((responses) => {
