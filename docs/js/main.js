@@ -32,9 +32,9 @@ typing();
 
 // 2. START ANIMATION NAVBAR
 const humberger = document.getElementById("humberger");
-const nav = document.getElementById("nav_menu");
+const nav_menu = document.getElementById("nav_menu");
 humberger.addEventListener("click", function () {
-  nav.classList.toggle("hidden");
+  nav_menu.classList.toggle("hidden");
   humberger.classList.toggle("humberger_active");
 });
 
@@ -71,6 +71,8 @@ nav_ul_li_a.forEach((nav) => {
       link.classList.remove("active");
     });
     nav.classList.add("active");
+    nav_menu.classList.add("hidden");
+    humberger.classList.remove("humberger_active");
   });
 });
 // 4. END NAV COLORS CLICK
@@ -193,51 +195,92 @@ btnMode.forEach((mode) => {
 
 // GET API ARTICLE
 // const data_selengkapnya = document.getElementById("data_selengkapnya");
+const alertArticles = document.querySelector(".alertArticles");
 const searchArticles = document.getElementById("search");
 const btnSearh = document.querySelector("#btnSearching");
-const alertArticles = document.querySelector(".alertArticles");
-console.log(btnSearh);
+const title_Articles = document.querySelector(".title_Articles");
+console.log(title_Articles);
+const categoryArticles = document.querySelectorAll("ul.sub_menu li a");
+
+// CATEGORY ARTICLES
+categoryArticles.forEach((category) => {
+  category.addEventListener("click", function () {
+    getDataCategory(category);
+  });
+});
+
+// GET CATEGORY ARTICLES
+function getDataCategory(category) {
+  const categoryName = category.innerHTML;
+  title_Articles.innerHTML = categoryName;
+  const api = fetch(
+    `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&category=${categoryName}`
+  );
+  api
+    .then((responses) => {
+      if (responses.status == 200) {
+        return responses.json();
+      } else {
+        setInterval(() => {
+          alertArticles.classList.add("alertEroor");
+          alertArticles.innerHTML = responses.statusText;
+        }, 1000);
+        alertArticles.classList.remove("alertEroor");
+      }
+    })
+    .then((d) => {
+      values = d.results;
+      setDataArticles(values);
+    });
+}
+
 // SEARCH NEWS
-btnSearh.addEventListener("click", function (e) {
+btnSearh.addEventListener("click", function () {
+  title_Articles.innerHTML = searchArticles.value;
   if (searchArticles.value != "") {
     alertArticles.classList.add("alertSuccess");
     alertArticles.innerHTML = `Getting Articles...`;
-    const data = searchArticles.value;
-    getSearchArticles(data);
+    const valueSearch = searchArticles.value;
+    const api = fetch(
+      `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&q=${valueSearch}`
+    );
+    api
+      .then((responses) => {
+        if (responses.status == 200) {
+          return responses.json();
+        } else {
+          setInterval(() => {
+            alertArticles.classList.add("alertEroor");
+            alertArticles.innerHTML = responses.statusText;
+          }, 1000);
+          alertArticles.classList.remove("alertEroor");
+        }
+      })
+      .then((d) => {
+        alertArticles.classList.remove("alertSuccess");
+        values = d.results;
+        setDataArticles(values);
+      });
   }
 });
 
-function getSearchArticles(data) {
+// SET DATA ARTICLES
+function setDataArticles(values) {
   window.location.href = "#article";
-  const api = `https://newsdata.io/api/1/news?apikey=pub_12793f8312d35521e2915beaf5408025fe4c9&q=${data}`;
-  data = fetch(api).then((res) => {
-    if (res.status == 200) {
-      return res.json();
-    } else {
-      alertArticles.classList.add("alertEroor");
-      alertArticles.innerHTML = res.statusText;
-    }
+  let dataCategoryNews = "";
+  values.forEach((value) => {
+    const results = {
+      title: value.title,
+      // jika ada string tampilkan string jika tidak ada tampilkan string kosong
+      description: value.description.substring(0, 100) || "",
+      url: value.link,
+      thumbnail: value.image_url,
+      category: value.category,
+      published: value.pubDate,
+    };
+    dataCategoryNews += UINewsIndonesia(results);
   });
-  data.then((d) => {
-    alertArticles.classList.replace("alertSuccess", "alertEroor");
-    alertWeather.classList.remove("alertSuccess");
-
-    let UpdateUINewsIndonesia = "";
-    values = d.results;
-    values.forEach((value) => {
-      const results = {
-        title: value.title,
-        // jika ada string tampilkan string jika tidak ada tampilkan string kosong
-        description: value.description.substring(0, 100) || "",
-        url: value.link,
-        thumbnail: value.image_url,
-        category: value.category,
-        published: value.pubDate,
-      };
-      UpdateUINewsIndonesia += UINewsIndonesia(results);
-    });
-    document.querySelector(".blogs").innerHTML = UpdateUINewsIndonesia;
-  });
+  document.querySelector(".blogs").innerHTML = dataCategoryNews;
 }
 
 // tampilkan data article populer
@@ -246,7 +289,7 @@ function getSearchArticles(data) {
 })();
 
 // pub_12793f8312d35521e2915beaf5408025fe4c9
-// FETCH DATA API
+// FETCH DATA API ARTICLES
 function fetchData() {
   Promise.all([
     fetch(
@@ -264,7 +307,6 @@ function fetchData() {
       try {
         getDataBlogs(data);
       } catch (error) {
-        console.log(error);
         alertArticles.classList.add("alertEroor");
         alertArticles.innerHTML = error.message;
       }
